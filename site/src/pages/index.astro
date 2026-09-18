@@ -1,0 +1,10 @@
+---
+import ApprovedHome from '../components/ApprovedHome';
+import SiteHead from '../components/SiteHead.astro';
+import {loadJobs} from '../lib/jobs';
+import {recentJobs} from '../lib/feeds.mjs';
+import '../styles/approved-home.css';
+const jobs=recentJobs(await loadJobs());
+---
+<!doctype html>
+<html lang="en"><head><SiteHead title="Water Heater Boys | Bay Area Water Heater & Plumbing Services" description="Water heater installation and full-service plumbing from a local Bay Area crew. See real completed work and request an estimate."/></head><body><a class="skip-link" href="#services">Skip to services</a><ApprovedHome jobs={jobs}/><script is:inline src="https://elfsightcdn.com/platform.js" async></script></body></html>

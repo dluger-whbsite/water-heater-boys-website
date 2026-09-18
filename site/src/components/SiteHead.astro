@@ -1,0 +1,34 @@
+---
+interface Props {title:string; description:string;}
+const {title,description}=Astro.props;
+const siteOrigin='https://www.waterheaterboys.com';
+const fullTitle=title.includes('Water Heater Boys')?title:`${title} | Water Heater Boys`;
+const canonical=new URL(Astro.url.pathname,siteOrigin).toString();
+const production=import.meta.env.PUBLIC_SITE_MODE==='production';
+const businessSchema={
+  '@context':'https://schema.org',
+  '@type':'Plumber',
+  name:'Water Heater Boys',
+  url:siteOrigin,
+  telephone:'+1-650-844-2305',
+  image:`${siteOrigin}/assets/2026/03/logo.svg`,
+  areaServed:['San Francisco County','San Mateo County','Contra Costa County','Alameda County','Santa Clara County'].map(name=>({'@type':'AdministrativeArea',name})),
+  description:'Water heater installation and full-service plumbing for homes across the San Francisco Bay Area.',
+};
+---
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width"/>
+<meta name="robots" content={production?'index,follow':'noindex,nofollow'}/>
+<meta name="description" content={description}/>
+<link rel="canonical" href={canonical}/>
+<title>{fullTitle}</title>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Water Heater Boys"/>
+<meta property="og:title" content={fullTitle}/>
+<meta property="og:description" content={description}/>
+<meta property="og:url" content={canonical}/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content={fullTitle}/>
+<meta name="twitter:description" content={description}/>
+<link rel="icon" href="/assets/logo.svg"/>
+<script type="application/ld+json" set:html={JSON.stringify(businessSchema)}></script>

@@ -1,0 +1,15 @@
+{
+ "GT-007":{"path":"site-files/032/source.jpg","reason":"Exact source filename plus downloaded .jpg suffix."},
+ "GT-009":{"path":"site-files/036/source.jpg","reason":"Exact source filename plus downloaded .jpg suffix."},
+ "GT-014":{"path":"site-files/070/source.jpg","reason":"Exact source filename plus downloaded .jpg suffix."},
+ "GT-023":{"path":"gas-tank/026/source.jpg","reason":"Truncated UUID filename completed in gas-tank archive. Visually checked against edited PNG version: same installation."},
+ "GT-029":{"path":"gas-tank/014/source.jpg","reason":"Exact extensionless source name plus .jpg in gas-tank archive."},
+ "GT-030":{"path":"site-files/003/source.jpg","reason":"Truncated long source filename matches edited/original pair. Both visually show same installation; selected supplied edited version."},
+ "GT-035":{"path":"site-files/031/source.jpg","reason":"Exact source filename plus downloaded .jpg suffix."},
+ "GT-040":{"path":"site-files/065/source.jpg","reason":"Exact extensionless source name plus .jpg."},
+ "GT-041":{"path":"site-files/061/source.jpg","reason":"Visually checked both ryan_edited.jpg entries: this is Bradford White gas tank, other is Rheem heat pump."},
+ "GT-045":{"path":"site-files/076/source.png","reason":"Visually checked both same-name images: same installation. Selected version without phone gallery controls."},
+ "TL-003":{"path":"site-files/103/source.jpeg","reason":"Visually checked both same-name images: same Navien installation, different framing."},
+ "TL-006":{"path":"site-files/085/source.jpg","reason":"Visually checked both same-name images: same Navien installation. Selected wider framing."},
+ "HP-004":{"path":"site-files/125/source.jpg","reason":"Visually checked both ryan_edited.jpg entries: this is Rheem heat pump in utility closet, other is Bradford White gas tank."}
+}

@@ -1,0 +1,11 @@
+{
+  "prepared_for": "Water Heater Boys",
+  "purpose": "Astra owner-review website prototype migration package",
+  "current_site": "https://www.waterheaterboys.com/",
+  "gas_tank_job_count": 57,
+  "tankless_job_count": 6,
+  "heat_pump_job_count": 7,
+  "total_structured_jobs": 70,
+  "image_binaries_included": false,
+  "reason_images_not_embedded": "Wix CDN blocked direct bulk retrieval from packaging environment; exact filename-to-job/section associations are included."
+}

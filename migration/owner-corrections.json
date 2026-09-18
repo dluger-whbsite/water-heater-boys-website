@@ -1,0 +1,5 @@
+{
+  "GT-002": {"zip":"94010","replaces":"94595","reason":"Owner confirmed Burlingame job ZIP on September 18, 2026."},
+  "GT-031": {"zip":"94583","replaces":"94595","reason":"Owner confirmed San Ramon job ZIP on September 12, 2026."},
+  "TL-004": {"zip":"94121","replaces":"94122","reason":"Owner confirmed San Francisco Vesta tankless job ZIP on September 12, 2026."}
+}

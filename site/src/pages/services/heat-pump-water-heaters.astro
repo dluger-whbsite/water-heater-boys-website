@@ -1,0 +1,21 @@
+---
+import ServicePage from '../../components/ServicePage.astro';
+import {loadJobs} from '../../lib/jobs';
+import {serviceJobs} from '../../lib/feeds.mjs';
+const jobs=serviceJobs(await loadJobs(),'heat-pump');
+const included=[
+ {title:'Check the space.',copy:'We assess installation space, airflow, clearances, and noise considerations. Garages and utility spaces with adequate airflow are common locations, but the right fit depends on your home and the selected system.'},
+ {title:'Plan power and drainage.',copy:'Each installation includes replacement water supply lines, required drain pans, and proper condensate routing. We evaluate electrical capacity and connections, and identify the electrical work required for the selected unit up front.'},
+ {title:'Configure and test.',copy:'We install hybrid systems using manufacturer-recommended configurations. Once installed, the system is tested and configured for proper operation before the job is complete.'}
+];
+const faqs=[
+ {q:'Can a heat pump water heater replace a gas tank?',a:'These systems are commonly installed as replacements for gas tank water heaters. We first assess the space, airflow, electrical capacity, and condensate drainage to determine what the installation will require.'},
+ {q:'Where can a hybrid heat pump water heater go?',a:'Garages and utility spaces with adequate airflow are common locations. We evaluate the manufacturer’s space and clearance requirements, along with airflow and noise considerations, before recommending a setup.'},
+ {q:'Will electrical work be needed?',a:'We evaluate your electrical capacity and the requirements of the selected unit before installation. Any required circuit or connection work should be part of the installation plan, not a surprise on the day.'},
+ {q:'How do I find out whether it fits my home?',a:'Call us or send a service request below. Tell us about your current water heater and where it is installed, and our team can help you understand the next steps.'}
+];
+---
+<ServicePage title="Hybrid Heat Pump Water Heater Installation in the Bay Area" description="Explore hybrid heat pump water heater installation with Water Heater Boys. Learn about space, power, and drainage planning, see real jobs, and request an estimate." label="Hybrid heat pump water heaters" headline="Considering electric? Start with the" emphasis="right fit." intro="Explore a hybrid heat pump water heater with a clear understanding of the space, electrical work, and installation your home needs." introHeading="Plan the space. Power. And everything in between." paragraphs={[
+ 'Water Heater Boys installs hybrid heat pump water heaters for Bay Area homeowners looking to reduce energy use and operating costs. Careful planning starts with space requirements, airflow, electrical capacity, and condensate drainage.',
+ 'These systems are commonly installed as replacements for gas tank water heaters. We evaluate the installation conditions first and address required modifications up front, so you can make an informed decision.'
+ ]} included={included} note={{title:'Planned around your home.',copy:'Manufacturer-recommended configurations guide the installation. We identify site modifications before the work begins and configure the system for proper operation.'}} faqs={faqs} jobs={jobs} workHeading="Our heat pump work." alternatives={[{label:'Gas tank water heaters',url:'/services/gas-tank-water-heaters/'},{label:'tankless water heaters',url:'/services/tankless-water-heaters/'}]}/>

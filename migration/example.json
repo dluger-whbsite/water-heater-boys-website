@@ -1,0 +1,15 @@
+{
+  "_id": "wix-gas-tank-san-jose-001",
+  "_type": "completedJob",
+  "city": "San Jose",
+  "serviceType": "gas-tank",
+  "equipment": "Bradford White 40-gallon gas tank water heater",
+  "problem": "The old water heater was leaking from the top and bottom.",
+  "workPerformed": "Installed a Bradford White 40-gallon gas tank water heater.",
+  "completionDate": null,
+  "publishedAt": null,
+  "reviewStatus": "draft",
+  "legacyId": "gas-tank-san-jose-001",
+  "legacySourceUrl": "https://www.waterheaterboys.com/services/gas-tank-water-heater-installation",
+  "sourcePhotos": [{"localPath":"site/public/assets/san-jose-gas-tank.jpg","alt":"Completed gas tank water heater installation in San Jose","associationVerified":false}]
+}

@@ -1,0 +1,12 @@
+---
+import type {Job} from '../lib/jobs';
+import {displayJobTitle} from '../lib/jobDisplay.mjs';
+const {jobs,empty='Approved jobs will appear here.'}=Astro.props as {jobs:Job[],empty?:string};
+---
+<div class="jobs">
+{jobs.map(job=><article class="job" id={`job-${job._id}`} data-city={job.city}>
+ <div class="gallery">{job.photos.map((p,i)=><img src={p.url.startsWith('https://cdn.sanity.io/')?`${p.url}?w=900&auto=format&fit=max`:p.url} alt={p.alt||`${job.equipment||'Water heater installation'} in ${job.city}`} loading="lazy" width="600" height="680" />)}</div>
+ <div class="job-copy"><p class="eyebrow">{job.city}{job.zip&&<> · {job.zip}</>} · {job.serviceType.replaceAll('-',' ')}</p><h3>{displayJobTitle(job)}</h3>{job.description&&<p>{job.description}</p>}{job.problem&&<p><strong>The problem</strong><br/>{job.problem}</p>}{job.workPerformed&&<p><strong>What we did</strong><br/>{job.workPerformed}</p>}{job.completionDate&&<p class="date">Completed {job.completionDate}</p>}</div>
+ </article>)}
+{!jobs.length&&<p class="empty">{empty}</p>}
+</div>

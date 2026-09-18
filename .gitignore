@@ -1,0 +1,16 @@
+node_modules/
+site/dist/
+site/.astro/
+**/.astro/
+dist/
+.sanity/
+.wrangler/
+.wrangler-dry-run/
+.env
+.env.*
+!.env.example
+backups/
+migration/source-images*/
+migration/brand-source/
+.preview-*.log
+coverage/

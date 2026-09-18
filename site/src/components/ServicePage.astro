@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/ServiceLayout.astro';
+import JobFeed from './JobFeed.astro';
+import type {Job} from '../lib/jobs';
+interface Props {
+ title:string; description:string; label:string; headline:string; emphasis:string; intro:string;
+ introHeading:string; paragraphs:string[]; included:{title:string;copy:string}[];
+ note:{title:string;copy:string}; faqs:{q:string;a:string}[]; jobs:Job[];
+ workHeading:string; alternatives:{label:string;url:string}[];
+}
+const {title,description,label,headline,emphasis,intro,introHeading,paragraphs,included,note,faqs,jobs,workHeading,alternatives}=Astro.props;
+const featured=jobs.find(job=>job.photos?.[0]?.url);
+---
+<Layout title={title} description={description}>
+<section class="hero service-hero"><div class="wrap"><p class="breadcrumb"><a href="/">Home</a> / <a href="/#services">Services</a> / {label}</p><div class="hero-grid"><div><p class="eyebrow">{label.toUpperCase()} INSTALLATION</p><h1>{headline}<br/><em>{emphasis}</em></h1><p class="hero-description">{intro}</p><div class="actions"><a class="button" href="#estimate">Get an estimate ↗</a><a class="text-link" href="tel:6508442305">Call (650) 844-2305 ↗</a></div><p class="availability">Serving San Francisco, the Peninsula, East Bay &amp; South Bay.</p></div><div class="hero-visual"><div class="photo-frame">{featured&&<img src={`${featured.photos[0].url}?w=1000&auto=format&fit=max`} width="600" height="680" fetchpriority="high" alt={featured.photos[0].alt||`${label} installation in ${featured.city}`}/>}<span class="photo-label">OUR WORK{featured&&` / ${featured.city.toUpperCase()}`}</span></div><div class="warranty"><div><strong>1-year workmanship warranty</strong><span>Confidence in the work. Long after we leave.</span></div></div></div></div></div></section>
+<div class="trust"><div class="wrap"><span>✓ Licensed &amp; insured</span><span>✓ Upfront quotes</span><span>✓ Installation &amp; replacement</span><span>✓ Local Bay Area crew</span></div></div>
+<section class="section wrap service-intro"><div><p class="eyebrow">THE RIGHT FIT COMES FIRST</p><h2>{introHeading}</h2></div><div>{paragraphs.map(p=><p>{p}</p>)}<p class="other-options">Exploring other options? {alternatives.map((a,i)=><>{i>0?' or ':''}<a href={a.url}>{a.label}</a></>)}.</p></div></section>
+<section class="section included-section"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">THE DETAILS ARE PART OF THE JOB</p><h2>What we take care of.</h2></div></div><div class="included-grid">{included.map(item=><article class="included-card"><h3>{item.title}</h3><p>{item.copy}</p></article>)}</div><p class="brand-note"><strong>{note.title}</strong> {note.copy}</p></div></section>
+<section class="section wrap portfolio" id="work"><div class="section-heading"><div><p class="eyebrow">REAL HOMES. REAL INSTALLATIONS.</p><h2>{workHeading}</h2></div><p>A selection of completed installations<br/>from our crew across the Bay Area.</p></div><JobFeed jobs={jobs}/><div class="portfolio-more"><button type="button" class="button" id="more-jobs" hidden>Show more installations ↓</button></div></section>
+<section class="section faq-section"><div class="wrap faq-grid"><div><p class="eyebrow">A LITTLE CLARITY HELPS</p><h2>Before we<br/>get started.</h2><p class="about-intro">Have a question about your particular setup? Talk to our team.</p><a class="text-link" href="tel:6508442305">(650) 844-2305 ↗</a></div><div>{faqs.map(faq=><details><summary>{faq.q}</summary><p>{faq.a}</p></details>)}</div></div></section>
+</Layout>
+<script>
+const cards=Array.from(document.querySelectorAll<HTMLElement>('.portfolio .job'));
+const more=document.querySelector<HTMLButtonElement>('#more-jobs')!;
+let limit=6;
+function render(){cards.forEach((card,index)=>{card.hidden=index>=limit;});more.hidden=limit>=cards.length;}
+function revealLinkedJob(){
+ const target=cards.find(card=>'#'+card.id===location.hash);if(!target)return;
+ limit=Math.max(limit,cards.indexOf(target)+1);render();
+ requestAnimationFrame(()=>target.scrollIntoView({block:'start',behavior:'instant'}));
+}
+more.addEventListener('click',()=>{const firstNew=cards[limit];limit+=6;render();if(firstNew){firstNew.tabIndex=-1;firstNew.focus({preventScroll:true});}});
+window.addEventListener('hashchange',revealLinkedJob);render();revealLinkedJob();
+</script>

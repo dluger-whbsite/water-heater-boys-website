@@ -1,0 +1,43 @@
+---
+import Layout from '../../layouts/ServiceLayout.astro';
+import JobFeed from '../../components/JobFeed.astro';
+import {loadJobs} from '../../lib/jobs';
+import {publishedJobs} from '../../lib/feeds.mjs';
+import {serviceAreas, type ServiceArea} from '../../lib/serviceAreas';
+
+export function getStaticPaths() {
+  return serviceAreas.map((area) => ({params: {city: area.slug}, props: {area}}));
+}
+
+const {area} = Astro.props as {area: ServiceArea};
+const jobs = publishedJobs(await loadJobs()).filter((job) => area.jobCities.includes(job.city));
+const services = [
+  {title:'Gas tank water heaters',url:'/services/gas-tank-water-heaters/',copy:'Replacement and installation with the tank, venting, gas supply, and safety details assessed.'},
+  {title:'Tankless water heaters',url:'/services/tankless-water-heaters/',copy:'Tankless replacement and conversion planning for your home and hot-water needs.'},
+  {title:'Heat pump water heaters',url:'/services/heat-pump-water-heaters/',copy:'A careful look at space, airflow, power, drainage, and the right system for the property.'},
+  {title:'Plumbing services',url:'/services/plumbing/',copy:'Help with fixtures, drains, repiping, bathroom plumbing, gas lines, and safety shut-offs.'},
+];
+---
+<Layout
+  title={`${area.city} Water Heater & Plumbing Services`}
+  description={`Water Heater Boys provides water heater installation and plumbing services in ${area.city}, ${area.county}. See completed local work and request service.`}
+  workHref="#local-work"
+  estimateIntro={`Tell us what you need at your ${area.city} property. Our team will discuss the work and scheduling with you.`}
+>
+  <section class="hero service-hero city-hero"><div class="wrap"><p class="breadcrumb"><a href="/">Home</a> / <a href="/service-areas/">Service areas</a> / {area.city}</p><div class="hero-grid"><div><p class="eyebrow">LOCAL WATER HEATER &amp; PLUMBING HELP</p><h1>Service for<br/>{area.city}<br/>homes.</h1><p class="hero-description">Water heater installation and full-service plumbing from a Bay Area crew serving {area.city} and nearby communities in {area.county}.</p><div class="actions"><a class="button" href="#estimate">Request service ↗</a><a class="text-link" href="tel:6508442305">Call (650) 844-2305 ↗</a></div></div><aside class="service-summary"><p class="eyebrow">START WITH WHAT YOU KNOW</p><h2>Your home.<br/>Your project.<br/>A clear next step.</h2><p>Tell us what is happening, where the equipment is located, and whether the work is urgent or planned. We’ll help you understand the next step.</p><a class="text-link" href="#services">Explore services ↓</a></aside></div></div></section>
+
+  <section class="section wrap" id="services"><div class="section-heading"><div><p class="eyebrow">HOW WE CAN HELP IN {area.city.toUpperCase()}</p><h2>One local crew.<br/>More than hot water.</h2></div><p>Water heaters and the plumbing around them,<br/>handled by one team.</p></div><div class="services">{services.map((service)=><a class="service" href={service.url}><h3>{service.title}</h3><p>{service.copy}</p><span class="service-link">Explore service ↗</span></a>)}</div></section>
+
+  <section class="section included-section portfolio" id="local-work"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">COMPLETED WORK IN {area.city.toUpperCase()}</p><h2>Real work from<br/>our local portfolio.</h2></div><p>A selection of completed work<br/>from homes in {area.city}.</p></div><JobFeed jobs={jobs} empty={`We have not added a ${area.city} job to this portfolio yet. Ask our team about recent work near you.`}/>{jobs.length>6&&<div class="portfolio-more"><button type="button" class="button" id="more-city-jobs">Show more installations ↓</button></div>}</div></section>
+
+  <section class="section wrap service-intro"><div><p class="eyebrow">SERVING {area.region.toUpperCase()}</p><h2>Not just one<br/>kind of job.</h2></div><div><p>We work on gas tank, tankless, and hybrid heat pump water heaters, along with plumbing repairs and planned improvements throughout {area.city} and {area.region}.</p><p>Every property is different. We assess the existing setup, explain the recommended work, and provide a quote before the job moves forward.</p><p class="other-options"><a href="/service-areas/">See our full service area</a> or contact us to discuss the work and scheduling for your address.</p></div></section>
+</Layout>
+
+<script>
+  const cards=Array.from(document.querySelectorAll<HTMLElement>('#local-work .job'));
+  const more=document.querySelector<HTMLButtonElement>('#more-city-jobs');
+  let limit=6;
+  function render(){cards.forEach((card,index)=>{card.hidden=index>=limit;});if(more)more.hidden=limit>=cards.length;}
+  more?.addEventListener('click',()=>{const firstNew=cards[limit];limit+=6;render();if(firstNew){firstNew.tabIndex=-1;firstNew.focus({preventScroll:true});}});
+  render();
+</script>

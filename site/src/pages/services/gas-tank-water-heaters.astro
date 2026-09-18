@@ -1,0 +1,48 @@
+---
+import Layout from '../../layouts/ServiceLayout.astro';
+import JobFeed from '../../components/JobFeed.astro';
+import {loadJobs} from '../../lib/jobs';
+import {serviceJobs} from '../../lib/feeds.mjs';
+const jobs=serviceJobs(await loadJobs(),'gas-tank');
+const featured=jobs.find(job=>job.photos?.[0]?.url);
+const included=[
+ {title:'A setup that fits your home.',copy:'We evaluate sizing, venting, gas supply, and safety components—not just the tank. Our team installs standard and high-efficiency gas tank units for single-family homes, condos, and small multi-unit properties.'},
+ {title:'The connections matter, too.',copy:'Every installation includes new hot and cold water supply lines, a new gas connector and gas shut-off valve, a sediment trap, a bonding line, seismic strapping, and a drain pan when one is not already present.'},
+ {title:'Out with the old. Tested for the new.',copy:'We remove and dispose of your existing water heater, install the new unit, and verify safe operation. Each system is tested for gas leaks and proper draft before the job is complete.'}
+];
+const faqs=[
+ {q:'Which water heater brands do you install?',a:'Whenever possible, we install Bradford White gas tank water heaters. If availability or your preference calls for another manufacturer, we use reputable professional-grade equipment.'},
+ {q:'Can you help me choose the right size?',a:'Yes. Proper sizing is part of our installation assessment. Tell us about your household and current water heater so we can discuss a setup that suits your home.'},
+ {q:'Do you take away the old water heater?',a:'Yes. Removal and disposal of the existing water heater are included in our installations.'},
+ {q:'How do I find out the price and availability?',a:'Call us or use the service request form below. We’ll assess your setup, explain the recommended work, and provide a quote. Ask our team about current scheduling availability.'}
+];
+---
+<Layout title="Gas Tank Water Heater Installation in the Bay Area" description="Gas tank water heater installation and replacement by Water Heater Boys. Explore what is included, real Bay Area installations, and request an estimate.">
+<section class="hero service-hero"><div class="wrap"><p class="breadcrumb"><a href="/">Home</a> / <a href="/#services">Services</a> / Gas tank water heaters</p><div class="hero-grid"><div><p class="eyebrow">GAS TANK WATER HEATER INSTALLATION</p><h1>Reliable hot water.<br/>Installed <em>right.</em></h1><p class="hero-description">Replacing an aging or failed water heater? Get a gas tank system suited to your home, with the connections, safety checks, and finishing details taken care of.</p><div class="actions"><a class="button" href="#estimate">Get an estimate ↗</a><a class="text-link" href="tel:6508442305">Call (650) 844-2305 ↗</a></div><p class="availability">Serving San Francisco, the Peninsula, East Bay &amp; South Bay.</p></div><div class="hero-visual"><div class="photo-frame">{featured&&<img src={`${featured.photos[0].url}?w=1000&auto=format&fit=max`} width="600" height="680" fetchpriority="high" alt={featured.photos[0].alt||`Gas tank water heater installation in ${featured.city}`}/>}<span class="photo-label">OUR WORK{featured&&` / ${featured.city.toUpperCase()}`}</span></div><div class="warranty"><div><strong>1-year workmanship warranty</strong><span>Confidence in the work. Long after we leave.</span></div></div></div></div></div></section>
+<div class="trust"><div class="wrap"><span>✓ Licensed &amp; insured</span><span>✓ Upfront quotes</span><span>✓ Old tank removal</span><span>✓ Local Bay Area crew</span></div></div>
+<section class="section wrap service-intro"><div><p class="eyebrow">MORE THAN A TANK SWAP</p><h2>A good installation<br/>looks at the<br/>whole setup.</h2></div><div><p>Gas tank water heater installations require more than simply replacing an old unit. Proper sizing, venting, gas supply, and safety components all need to be evaluated for reliable performance and code-compliant operation.</p><p>Water Heater Boys specializes in residential gas tank installations throughout the Bay Area. We evaluate the installation against current California code and manufacturer requirements, and explain the work your home needs.</p><p class="other-options">Exploring other options? See <a href="/services/tankless-water-heaters/">tankless</a> or <a href="/services/heat-pump-water-heaters/">heat pump water heaters</a>.</p></div></section>
+<section class="section included-section"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">THE DETAILS ARE PART OF THE JOB</p><h2>What we take care of.</h2></div></div><div class="included-grid">{included.map(item=><article class="included-card"><h3>{item.title}</h3><p>{item.copy}</p></article>)}</div><p class="brand-note"><strong>Professional-grade equipment.</strong> Whenever possible, we install Bradford White gas tank water heaters. If availability or your preference calls for another manufacturer, we install reputable professional-grade equipment.</p></div></section>
+<section class="section wrap portfolio" id="work"><div class="section-heading"><div><p class="eyebrow">REAL HOMES. REAL INSTALLATIONS.</p><h2>Our gas tank work.</h2></div><p>A selection of completed installations<br/>from our crew across the Bay Area.</p></div><JobFeed jobs={jobs}/><div class="portfolio-more"><button type="button" class="button" id="more-jobs" hidden>Show more installations ↓</button></div></section>
+<section class="section faq-section"><div class="wrap faq-grid"><div><p class="eyebrow">A LITTLE CLARITY HELPS</p><h2>Before we<br/>get started.</h2><p class="about-intro">Have a question about your particular setup? Talk to our team.</p><a class="text-link" href="tel:6508442305">(650) 844-2305 ↗</a></div><div>{faqs.map(faq=><details><summary>{faq.q}</summary><p>{faq.a}</p></details>)}</div></div></section>
+</Layout>
+<script>
+const cards=Array.from(document.querySelectorAll<HTMLElement>('.portfolio .job'));
+const more=document.querySelector<HTMLButtonElement>('#more-jobs')!;
+let limit=6;
+function render(){
+ cards.forEach((card,index)=>{card.hidden=index>=limit;});
+ more.hidden=limit>=cards.length;
+}
+function revealLinkedJob(){
+ const target=cards.find(card=>'#'+card.id===location.hash);
+ if(!target)return;
+ limit=Math.max(limit,cards.indexOf(target)+1);render();
+ requestAnimationFrame(()=>target.scrollIntoView({block:'start',behavior:'instant'}));
+}
+more.addEventListener('click',()=>{
+ const firstNew=cards[limit];limit+=6;render();
+ if(firstNew){firstNew.tabIndex=-1;firstNew.focus({preventScroll:true});}
+});
+window.addEventListener('hashchange',revealLinkedJob);
+render();revealLinkedJob();
+</script>

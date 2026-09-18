@@ -1,0 +1,18 @@
+[
+  {
+    "id": "GT-037",
+    "original": "site-files\\035\\source.HEIC",
+    "output": "converted/GT-037.jpg",
+    "originalSha256": "754f20caf6fd254bbf151a8627dfcf87c3bbeefd24b60eeb28af911f01ed4faf",
+    "outputSha256": "e80b9aaecd5a0dcc372751038abd6051c53ffdfacaa6759e7f18399492dab9e8",
+    "conversion": "HEIC main image -> JPEG, quality 0.95; original retained"
+  },
+  {
+    "id": "TL-002",
+    "original": "site-files\\102\\source.heic",
+    "output": "converted/TL-002.jpg",
+    "originalSha256": "a94172ba2dd9adacfb3ed53b11318143bb8ee75e223e0d469e61502a77930a4d",
+    "outputSha256": "84b56cb6d8c0902d36b1307be14ce8b17131dc34c3cfa8992202f3ba7a2682df",
+    "conversion": "HEIC main image -> JPEG, quality 0.95; original retained"
+  }
+]

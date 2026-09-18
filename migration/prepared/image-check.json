@@ -1,0 +1,422 @@
+[
+  {
+    "id": "GT-001",
+    "status": "matched",
+    "expected": "8c23a18e-f764-4784-80c3-242e401f2d0a_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\001\\source.jpg"
+  },
+  {
+    "id": "GT-002",
+    "status": "matched",
+    "expected": "Kim.png",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\005\\source.png"
+  },
+  {
+    "id": "GT-003",
+    "status": "matched",
+    "expected": "F089E7DE-5F34-4C37-8124-655AF1E4BED3_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\009\\source.jpg"
+  },
+  {
+    "id": "GT-004",
+    "status": "matched",
+    "expected": "bradford_white_40_gallon_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\013\\source.jpg"
+  },
+  {
+    "id": "GT-005",
+    "status": "matched",
+    "expected": "40 gallon bradford white_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\025\\source.jpg"
+  },
+  {
+    "id": "GT-006",
+    "status": "matched",
+    "expected": "dorothy.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\030\\source.jpg"
+  },
+  {
+    "id": "GT-007",
+    "status": "matched",
+    "expected": "Annalissa.jfif",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\032\\source.jpg"
+  },
+  {
+    "id": "GT-008",
+    "status": "matched",
+    "expected": "Harminder.png",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\034\\source.png"
+  },
+  {
+    "id": "GT-009",
+    "status": "matched",
+    "expected": "Hilton.jfif",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\036\\source.jpg"
+  },
+  {
+    "id": "GT-010",
+    "status": "matched",
+    "expected": "IMG_8947_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\051\\source.jpg"
+  },
+  {
+    "id": "GT-011",
+    "status": "matched",
+    "expected": "neil_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\060\\source.jpg"
+  },
+  {
+    "id": "GT-012",
+    "status": "matched",
+    "expected": "Keith.png",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\067\\source.png"
+  },
+  {
+    "id": "GT-013",
+    "status": "matched",
+    "expected": "Gabby.png",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\068\\source.png"
+  },
+  {
+    "id": "GT-014",
+    "status": "matched",
+    "expected": "DavidSmith.jfif",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\070\\source.jpg"
+  },
+  {
+    "id": "GT-015",
+    "status": "matched",
+    "expected": "Blackburn.1.png",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\074\\source.png"
+  },
+  {
+    "id": "GT-016",
+    "status": "matched",
+    "expected": "Harjit.LosAltos.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\078\\source.jpg"
+  },
+  {
+    "id": "GT-017",
+    "status": "matched",
+    "expected": "Yibo.Burlingame.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\080\\source.jpg"
+  },
+  {
+    "id": "GT-018",
+    "status": "matched",
+    "expected": "93FDC8CA-1A48-4136-8140-98B45EEDA8B5 (1)_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\083\\source.jpg"
+  },
+  {
+    "id": "GT-019",
+    "status": "matched",
+    "expected": "CB16344B-8E48-47AD-9F50-25418BAA2473_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\gas-tank\\010\\source.jpg"
+  },
+  {
+    "id": "GT-020",
+    "status": "matched",
+    "expected": "chan_edited.png",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\110\\source.png"
+  },
+  {
+    "id": "GT-021",
+    "status": "matched",
+    "expected": "shawn_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\111\\source.jpg"
+  },
+  {
+    "id": "GT-022",
+    "status": "matched",
+    "expected": "0FA2D126-C790-4A01-BFC2-4E8757EEF34C_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\gas-tank\\012\\source.jpg"
+  },
+  {
+    "id": "GT-023",
+    "status": "matched",
+    "expected": "A69B7DCC-7E7E-45AB-8C94-57FA4EE950DF_edi",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\gas-tank\\026\\source.jpg"
+  },
+  {
+    "id": "GT-024",
+    "status": "matched",
+    "expected": "shishir.png",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\gas-tank\\019\\source.png"
+  },
+  {
+    "id": "GT-025",
+    "status": "matched",
+    "expected": "Screenshot 2025-12-19 085350_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\gas-tank\\030\\source.jpg"
+  },
+  {
+    "id": "GT-026",
+    "status": "matched",
+    "expected": "FA0C7DF3-AF66-4156-ADC0-53220C89C5ED_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\gas-tank\\028\\source.jpg"
+  },
+  {
+    "id": "GT-027",
+    "status": "matched",
+    "expected": "B4661B73-0F46-4D52-A6C8-FB996CC2FA18_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\gas-tank\\025\\source.jpg"
+  },
+  {
+    "id": "GT-028",
+    "status": "matched",
+    "expected": "eric_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\120\\source.jpg"
+  },
+  {
+    "id": "GT-029",
+    "status": "matched",
+    "expected": "georgia",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\gas-tank\\014\\source.jpg"
+  },
+  {
+    "id": "GT-030",
+    "status": "matched",
+    "expected": "eyJidWNrZXQiOiJqb2JiZXIiLCJrZXkiOiJub3RlX2ZpbGVfYXR0YWNobWVudHMvOTY3Ny00MDY4OTE5NzYvb3JpZ2",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\003\\source.jpg"
+  },
+  {
+    "id": "GT-031",
+    "status": "matched",
+    "expected": "IMG_9439_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\006\\source.jpg"
+  },
+  {
+    "id": "GT-032",
+    "status": "matched",
+    "expected": "ao_smith_power_vent_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\015\\source.jpg"
+  },
+  {
+    "id": "GT-033",
+    "status": "matched",
+    "expected": "0661050c-204c-45ed-bdda-f36398dc5647.png",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\019\\source.png"
+  },
+  {
+    "id": "GT-034",
+    "status": "matched",
+    "expected": "b6b757f0-66d3-41a6-94e3-abb04421ac6c.png",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\029\\source.png"
+  },
+  {
+    "id": "GT-035",
+    "status": "matched",
+    "expected": "Xi.jfif",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\031\\source.jpg"
+  },
+  {
+    "id": "GT-036",
+    "status": "matched",
+    "expected": "ZHOU.png",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\033\\source.png"
+  },
+  {
+    "id": "GT-037",
+    "status": "matched",
+    "expected": "IMG_8410.HEIC",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\converted\\GT-037.jpg"
+  },
+  {
+    "id": "GT-038",
+    "status": "matched",
+    "expected": "40_gallon_bradford_white_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\044\\source.jpg"
+  },
+  {
+    "id": "GT-039",
+    "status": "matched",
+    "expected": "AFC0647A-4919-40EC-AD06-196EB7818438_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\056\\source.jpg"
+  },
+  {
+    "id": "GT-040",
+    "status": "matched",
+    "expected": "bradford 75 gallon",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\065\\source.jpg"
+  },
+  {
+    "id": "GT-041",
+    "status": "matched",
+    "expected": "ryan_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\061\\source.jpg"
+  },
+  {
+    "id": "GT-042",
+    "status": "matched",
+    "expected": "erich_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\062\\source.jpg"
+  },
+  {
+    "id": "GT-043",
+    "status": "matched",
+    "expected": "Marcos.png",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\071\\source.png"
+  },
+  {
+    "id": "GT-044",
+    "status": "matched",
+    "expected": "Vadim.png",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\077\\source.png"
+  },
+  {
+    "id": "GT-045",
+    "status": "matched",
+    "expected": "G.Norman.SF.png",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\076\\source.png"
+  },
+  {
+    "id": "GT-046",
+    "status": "matched",
+    "expected": "441B14D4-7ACC-4267-8A09-E5AD15D5EA2E_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\081\\source.jpg"
+  },
+  {
+    "id": "GT-047",
+    "status": "matched",
+    "expected": "Screenshot 2026-01-22 142958_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\gas-tank\\004\\source.jpg"
+  },
+  {
+    "id": "GT-048",
+    "status": "matched",
+    "expected": "chris_edited_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\090\\source.jpg"
+  },
+  {
+    "id": "GT-049",
+    "status": "matched",
+    "expected": "jp_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\109\\source.jpg"
+  },
+  {
+    "id": "GT-050",
+    "status": "matched",
+    "expected": "lesley_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\112\\source.jpg"
+  },
+  {
+    "id": "GT-051",
+    "status": "matched",
+    "expected": "0021C00A-4946-4A87-A7D7-451CCF7C0303_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\114\\source.jpg"
+  },
+  {
+    "id": "GT-052",
+    "status": "matched",
+    "expected": "kam.png",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\gas-tank\\020\\source.png"
+  },
+  {
+    "id": "GT-053",
+    "status": "matched",
+    "expected": "shiela_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\gas-tank\\024\\source.jpg"
+  },
+  {
+    "id": "GT-054",
+    "status": "matched",
+    "expected": "DF55E281-3BC8-4A49-8633-774297F5459B.png",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\gas-tank\\021\\source.png"
+  },
+  {
+    "id": "GT-055",
+    "status": "matched",
+    "expected": "0F684829-FCBF-4C80-9423-EF8CB170DE4C_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\gas-tank\\027\\source.jpg"
+  },
+  {
+    "id": "GT-056",
+    "status": "matched",
+    "expected": "IMG_7160.JPG",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\gas-tank\\022\\source.JPG"
+  },
+  {
+    "id": "GT-057",
+    "status": "matched",
+    "expected": "Henry_edited_edited.png",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\119\\source.png"
+  },
+  {
+    "id": "TL-001",
+    "status": "matched",
+    "expected": "meiko_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\tankless\\001\\source.jpg"
+  },
+  {
+    "id": "TL-002",
+    "status": "matched",
+    "expected": "14F7B6D9-1CFC-4FC6-A4E3-9BC0EAEE92E0.heic",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\converted\\TL-002.jpg"
+  },
+  {
+    "id": "TL-003",
+    "status": "matched",
+    "expected": "IMG_2296.jpeg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\103\\source.jpeg"
+  },
+  {
+    "id": "TL-004",
+    "status": "matched",
+    "expected": "IMG_3273.jpeg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\105\\source.jpeg"
+  },
+  {
+    "id": "TL-005",
+    "status": "matched",
+    "expected": "FullSizeRender.jpeg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\089\\source.jpeg"
+  },
+  {
+    "id": "TL-006",
+    "status": "matched",
+    "expected": "FullSizeRender_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\085\\source.jpg"
+  },
+  {
+    "id": "HP-001",
+    "status": "matched",
+    "expected": "Gaurav.2.png",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\069\\source.png"
+  },
+  {
+    "id": "HP-002",
+    "status": "matched",
+    "expected": "margaret_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\heat-pump\\003\\source.jpg"
+  },
+  {
+    "id": "HP-003",
+    "status": "matched",
+    "expected": "srikanth_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\heat-pump\\002\\source.jpg"
+  },
+  {
+    "id": "HP-004",
+    "status": "matched",
+    "expected": "ryan_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\125\\source.jpg"
+  },
+  {
+    "id": "HP-005",
+    "status": "matched",
+    "expected": "barb_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\124\\source.jpg"
+  },
+  {
+    "id": "HP-006",
+    "status": "matched",
+    "expected": "arlina_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\128\\source.jpg"
+  },
+  {
+    "id": "HP-007",
+    "status": "matched",
+    "expected": "jason_edited.jpg",
+    "path": "C:\\Users\\dust2\\Documents\\Codex\\2026-09-10\\so-now-i-m-switching-gears\\astro-sanity-poc\\migration\\source-images-indexed\\site-files\\126\\source.jpg"
+  }
+]

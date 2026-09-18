@@ -1,0 +1,25 @@
+{
+  "published": 70,
+  "counts": {
+    "gas-tank": 57,
+    "tankless": 6,
+    "heat-pump": 7
+  },
+  "remainingImportedDrafts": 0,
+  "unrelatedRecordsUnchanged": true,
+  "recentJobs": [
+    {
+      "id": "8b4c82c3-9e70-4884-986d-82c8a46189bf",
+      "city": "Danville"
+    },
+    {
+      "id": "wix-gt-001",
+      "city": "Walnut Creek"
+    },
+    {
+      "id": "wix-gt-002",
+      "city": "Burlingame"
+    }
+  ],
+  "publicationTime": "2026-09-13T02:28:05.968Z"
+}

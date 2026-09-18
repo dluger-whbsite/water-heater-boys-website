@@ -1,0 +1,8 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {prepare,parseCsv,normalize,findImages} from '../migration/prepare.mjs';
+test('CSV preserves quoted commas, quotes, newlines, and ZIP strings',()=>assert.deepEqual(parseCsv('id,zip,description\r\n1,00123,"A, ""B""\nC"\r\n'),[{id:'1',zip:'00123',description:'A, "B"\nC'}]));
+test('all 70 jobs reconcile with manifest and stable IDs',()=>{const jobs=prepare();assert.equal(jobs.length,70);assert.equal(new Set(jobs.map(j=>j._id)).size,70);assert.deepEqual(['gas-tank','tankless','heat-pump'].map(s=>jobs.filter(j=>j.serviceType===s).length),[57,6,7]);assert.ok(jobs.every(j=>j._id.startsWith('drafts.')&&!j.publishedAt&&!j.completionDate));});
+test('owner ZIP corrections persist while original source remains intact',()=>{const jobs=prepare();const burlingame=jobs.find(j=>j.legacyId==='GT-002');assert.equal(burlingame.zip,'94010');assert.match(burlingame.title,/94010/);assert.match(burlingame.legacyOriginalTitle,/94595/);const tankless=jobs.find(j=>j.legacyId==='TL-004');assert.equal(tankless.zip,'94121');assert.match(tankless.description,/94121/);assert.match(tankless.legacyOriginalDescription,/94122/);assert.match(tankless.migrationNotes,/Owner confirmed/);const gas=jobs.find(j=>j.legacyId==='GT-031');assert.equal(gas.zip,'94583');assert.match(gas.title,/94583/);assert.match(gas.legacyOriginalTitle,/94595/);assert.match(jobs.find(j=>j.legacyId==='HP-004').migrationNotes,/Filename reused/);});
+test('missing photos are not guessed',()=>assert.ok(findImages(prepare()).every(i=>i.status==='missing')));
+test('only explicit typo rules change wording',()=>assert.equal(normalize('Homeowner requested a a new unit.'),'Homeowner requested a new unit.'));

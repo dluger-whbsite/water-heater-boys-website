@@ -1,0 +1,23 @@
+---
+import {getCollection, render} from 'astro:content';
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import '../../styles/blog.css';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post=>({params:{slug:post.id},props:{post}}));
+}
+
+const {post}=Astro.props;
+const {Content}=await render(post);
+const relatedByNumber={
+  19:[15,8], 15:[19,8], 18:[10,9], 10:[18,8], 3:[9,8],
+  2:[3], 1:[9], 12:[8], 14:[19], 5:[7], 7:[5], 9:[3,1], 8:[15,18],
+};
+const all=await getCollection('blog');
+const related=(relatedByNumber[post.data.number]??[]).map(number=>all.find(item=>item.data.number===number)).filter(Boolean);
+---
+<ServiceLayout title={post.data.title} description={post.data.description} workHref="/#work" estimateIntro="Have a question about your existing setup? Share a few photos and tell us what is happening. We can often discuss a straightforward tank replacement by phone or text first.">
+  <div class="blog-article-shell wrap"><nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/blog/">Blog</a><span>›</span><span>{post.data.title}</span></nav><article class="blog-article"><Content /></article>
+  {related.length>0&&<aside class="blog-related"><h2>Related reading</h2><div class="blog-related-list">{related.map(item=><a href={`/post/${item.id}/`}>{item.data.title} ↗</a>)}</div></aside>}</div>
+</ServiceLayout>

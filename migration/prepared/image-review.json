@@ -1,0 +1,232 @@
+[
+  {
+    "id": "GT-007",
+    "category": "gas-tank",
+    "expected": "Annalissa.jfif",
+    "title": "San Francisco -Bradford White 50 Gallon Gas Tank Water Heater Installation",
+    "candidates": [
+      {
+        "path": "site-files\\032\\source.jpg",
+        "name": "Annalissa.jfif.jpg",
+        "category": "site-files",
+        "bytes": 643043
+      }
+    ]
+  },
+  {
+    "id": "GT-009",
+    "category": "gas-tank",
+    "expected": "Hilton.jfif",
+    "title": "Palo Alto - Bradford White 30 Gallon Gas Tank Water Heater Installation",
+    "candidates": [
+      {
+        "path": "site-files\\036\\source.jpg",
+        "name": "Hilton.jfif.jpg",
+        "category": "site-files",
+        "bytes": 585053
+      }
+    ]
+  },
+  {
+    "id": "GT-014",
+    "category": "gas-tank",
+    "expected": "DavidSmith.jfif",
+    "title": "San Mateo - Rheem 40 Gallon Gas Water Heater Installation",
+    "candidates": [
+      {
+        "path": "site-files\\070\\source.jpg",
+        "name": "DavidSmith.jfif.jpg",
+        "category": "site-files",
+        "bytes": 534864
+      }
+    ]
+  },
+  {
+    "id": "GT-023",
+    "category": "gas-tank",
+    "expected": "A69B7DCC-7E7E-45AB-8C94-57FA4EE950DF_edi",
+    "title": "Fremont - Bradford White 50-gallon Gas Tank Water Heater Installation",
+    "candidates": [
+      {
+        "path": "gas-tank\\026\\source.jpg",
+        "name": "A69B7DCC-7E7E-45AB-8C94-57FA4EE950DF_edited.jpg",
+        "category": "gas-tank",
+        "bytes": 187781
+      },
+      {
+        "path": "site-files\\129\\source.png",
+        "name": "A69B7DCC-7E7E-45AB-8C94-57FA4EE950DF_edited_edited_edited.png",
+        "category": "site-files",
+        "bytes": 382956
+      },
+      {
+        "path": "site-files\\130\\source.png",
+        "name": "A69B7DCC-7E7E-45AB-8C94-57FA4EE950DF_edited_edited.png",
+        "category": "site-files",
+        "bytes": 382879
+      }
+    ]
+  },
+  {
+    "id": "GT-029",
+    "category": "gas-tank",
+    "expected": "georgia",
+    "title": "San Carlos - Bradford White 40-gallon Gas Tank Water Heater Installation 94070",
+    "candidates": [
+      {
+        "path": "gas-tank\\014\\source.jpg",
+        "name": "georgia.jpg",
+        "category": "gas-tank",
+        "bytes": 432502
+      }
+    ]
+  },
+  {
+    "id": "GT-030",
+    "category": "gas-tank",
+    "expected": "eyJidWNrZXQiOiJqb2JiZXIiLCJrZXkiOiJub3RlX2ZpbGVfYXR0YWNobWVudHMvOTY3Ny00MDY4OTE5NzYvb3JpZ2",
+    "title": "Danville -Bradford White 40-Gallon 94526",
+    "candidates": [
+      {
+        "path": "site-files\\003\\source.jpg",
+        "name": "eyJidWNrZXQiOiJqb2JiZXIiLCJrZXkiOiJub3RlX2ZpbGVfYXR0YWNobWVudHMvOTY3Ny00MDY4OTE5NzYvb3JpZ2luYWwvQzVGMzVFRDAtM0YxNS00NTM1LTlERDUtOEI5QUIzRDYzMjJDLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudW_edited.jpg",
+        "category": "site-files",
+        "bytes": 424342
+      },
+      {
+        "path": "site-files\\004\\source.jpg",
+        "name": "eyJidWNrZXQiOiJqb2JiZXIiLCJrZXkiOiJub3RlX2ZpbGVfYXR0YWNobWVudHMvOTY3Ny00MDY4OTE5NzYvb3JpZ2luYWwvQzVGMzVFRDAtM0YxNS00NTM1LTlERDUtOEI5QUIzRDYzMjJDLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudW.jpg",
+        "category": "site-files",
+        "bytes": 122509
+      }
+    ]
+  },
+  {
+    "id": "GT-035",
+    "category": "gas-tank",
+    "expected": "Xi.jfif",
+    "title": "Palo Alto -Bradford White 50 Gallon Gas Tank Water Heater Installation",
+    "candidates": [
+      {
+        "path": "site-files\\031\\source.jpg",
+        "name": "Xi.jfif.jpg",
+        "category": "site-files",
+        "bytes": 588934
+      }
+    ]
+  },
+  {
+    "id": "GT-040",
+    "category": "gas-tank",
+    "expected": "bradford 75 gallon",
+    "title": "Danville - Bradford White 75 Gallon Gas Tank Water Heater Installation",
+    "candidates": [
+      {
+        "path": "site-files\\065\\source.jpg",
+        "name": "bradford 75 gallon.jpg",
+        "category": "site-files",
+        "bytes": 582773
+      }
+    ]
+  },
+  {
+    "id": "GT-041",
+    "category": "gas-tank",
+    "expected": "ryan_edited.jpg",
+    "title": "San Francisco - Bradford White 40 Gallon Gas Tank Water Heater Installation 94109",
+    "candidates": [
+      {
+        "path": "site-files\\061\\source.jpg",
+        "name": "ryan_edited.jpg",
+        "category": "site-files",
+        "bytes": 423640
+      },
+      {
+        "path": "site-files\\125\\source.jpg",
+        "name": "ryan_edited.jpg",
+        "category": "site-files",
+        "bytes": 408040
+      }
+    ]
+  },
+  {
+    "id": "GT-045",
+    "category": "gas-tank",
+    "expected": "G.Norman.SF.png",
+    "title": "San Francisco - Bradford White 50 Gallon Gas Water Heater Installation",
+    "candidates": [
+      {
+        "path": "site-files\\076\\source.png",
+        "name": "G.Norman.SF.png",
+        "category": "site-files",
+        "bytes": 2375513
+      },
+      {
+        "path": "site-files\\079\\source.png",
+        "name": "G.Norman.SF.png",
+        "category": "site-files",
+        "bytes": 1317308
+      }
+    ]
+  },
+  {
+    "id": "TL-003",
+    "category": "tankless",
+    "expected": "IMG_2296.jpeg",
+    "title": "San Francisco - Navien 199k BTU Gas Tankless Water Heater Installation",
+    "candidates": [
+      {
+        "path": "site-files\\103\\source.jpeg",
+        "name": "IMG_2296.jpeg",
+        "category": "site-files",
+        "bytes": 3231542
+      },
+      {
+        "path": "site-files\\104\\source.jpeg",
+        "name": "IMG_2296.jpeg",
+        "category": "site-files",
+        "bytes": 3871354
+      }
+    ]
+  },
+  {
+    "id": "TL-006",
+    "category": "tankless",
+    "expected": "FullSizeRender_edited.jpg",
+    "title": "Santa Clara - Navien 199k BTU Gas Tankless Water Heater Installation",
+    "candidates": [
+      {
+        "path": "site-files\\085\\source.jpg",
+        "name": "FullSizeRender_edited.jpg",
+        "category": "site-files",
+        "bytes": 3611547
+      },
+      {
+        "path": "site-files\\092\\source.jpg",
+        "name": "FullSizeRender_edited.jpg",
+        "category": "site-files",
+        "bytes": 1255354
+      }
+    ]
+  },
+  {
+    "id": "HP-004",
+    "category": "heat-pump",
+    "expected": "ryan_edited.jpg",
+    "title": "San Carlos - Rheem 80-gallon Hybrid Water Heater Installation",
+    "candidates": [
+      {
+        "path": "site-files\\061\\source.jpg",
+        "name": "ryan_edited.jpg",
+        "category": "site-files",
+        "bytes": 423640
+      },
+      {
+        "path": "site-files\\125\\source.jpg",
+        "name": "ryan_edited.jpg",
+        "category": "site-files",
+        "bytes": 408040
+      }
+    ]
+  }
+]

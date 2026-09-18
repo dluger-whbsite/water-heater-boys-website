@@ -1,0 +1,11 @@
+---
+import {getCollection} from 'astro:content';
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import '../../styles/blog.css';
+
+const posts = (await getCollection('blog')).sort((a,b)=>a.data.number-b.data.number);
+---
+<ServiceLayout title="Water Heater & Plumbing Advice" description="Water Heater Boys articles on water heater replacement, Bay Area rules, tankless and heat pump systems, and plumbing." workHref="/#work" estimateIntro="Have a question about your water heater or plumbing? Tell us what is happening and we can discuss the next step.">
+  <section class="blog-hero"><div class="wrap"><p class="eyebrow">WATER HEATER BOYS JOURNAL</p><h1>Useful answers for Bay Area homes.</h1><p>Water heaters, plumbing, costs, and the rules that may affect your next replacement.</p></div></section>
+  <section class="section wrap blog-index"><h2>Explore the articles.</h2><div class="blog-grid">{posts.map(post=><article class="blog-card"><p class="eyebrow">{post.data.number===1?'PROPERTY MANAGERS':post.data.number===9?'BAY AREA RULES':'HOMEOWNER GUIDE'}</p><h3><a href={`/post/${post.id}/`}>{post.data.title}</a></h3><p>{post.data.description}</p><a class="text-link" href={`/post/${post.id}/`}>Read article ↗</a></article>)}</div></section>
+</ServiceLayout>
