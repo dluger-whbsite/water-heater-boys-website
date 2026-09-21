@@ -5,6 +5,7 @@ const siteOrigin='https://www.waterheaterboys.com';
 const fullTitle=title.includes('Water Heater Boys')?title:`${title} | Water Heater Boys`;
 const canonical=new URL(Astro.url.pathname,siteOrigin).toString();
 const production=import.meta.env.PUBLIC_SITE_MODE==='production';
+const gaMeasurementId='G-JLE3QE7HQ4';
 const businessSchema={
   '@context':'https://schema.org',
   '@type':'Plumber',
@@ -31,4 +32,13 @@ const businessSchema={
 <meta name="twitter:title" content={fullTitle}/>
 <meta name="twitter:description" content={description}/>
 <link rel="icon" href="/assets/logo.svg"/>
+{production && <>
+<script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}></script>
+<script is:inline define:vars={{gaMeasurementId}}>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){window.dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', gaMeasurementId);
+</script>
+</>}
 <script type="application/ld+json" set:html={JSON.stringify(businessSchema)}></script>
