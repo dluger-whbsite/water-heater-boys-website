@@ -7,6 +7,7 @@ const articles=await getCollection('blog');
 const routes=[
   '/',
   '/blog/',
+  '/our-work/',
   '/faqs/',
   '/privacy-policy/',
   '/disclaimer/',

@@ -1,0 +1,100 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import {loadJobs} from '../lib/jobs';
+import {publishedJobs} from '../lib/feeds.mjs';
+import {displayJobTitle} from '../lib/jobDisplay.mjs';
+import '../styles/our-work.css';
+
+const jobs=publishedJobs(await loadJobs());
+const featured=jobs.find(job=>job.photos?.[0]?.url);
+const categories=[
+  {value:'all',label:'All work'},
+  {value:'gas-tank',label:'Gas tank'},
+  {value:'tankless',label:'Tankless'},
+  {value:'heat-pump',label:'Heat pump'},
+  {value:'plumbing',label:'Plumbing'},
+];
+const serviceLabels:Record<string,string>={
+  'gas-tank':'Gas tank',
+  tankless:'Tankless',
+  'heat-pump':'Heat pump',
+  plumbing:'Plumbing',
+};
+const servicePaths:Record<string,string>={
+  'gas-tank':'/services/gas-tank-water-heaters/',
+  tankless:'/services/tankless-water-heaters/',
+  'heat-pump':'/services/heat-pump-water-heaters/',
+  plumbing:'/services/plumbing/',
+};
+const jobHref=(job:typeof jobs[number])=>`${servicePaths[job.serviceType]||'/our-work/'}#job-${job._id}`;
+const imageUrl=(url:string)=>url.startsWith('https://cdn.sanity.io/')?`${url}?w=900&auto=format&fit=max`:url;
+---
+<ServiceLayout title="Our Work | Bay Area Water Heater & Plumbing Projects" description="Explore completed Water Heater Boys projects across the Bay Area, including gas tank, tankless, heat pump water heater, and plumbing work." estimateIntro="See something similar to the work you need? Tell us about your current setup and we’ll help you understand the next step.">
+  <section class="hero service-hero work-hero"><div class="wrap"><p class="breadcrumb"><a href="/">Home</a> / Our work</p><div class="hero-grid"><div><p class="eyebrow">COMPLETED WORK ACROSS THE BAY AREA</p><h1>Real homes.<br/>Work we’re <em>proud of.</em></h1><p class="hero-description">Browse completed water heater and plumbing projects from our crew. Choose a category to find work like yours.</p><div class="actions"><a class="button" href="#portfolio">Explore our work ↓</a><a class="text-link" href="#estimate">Request an estimate ↗</a></div></div><div class="hero-visual"><div class="photo-frame">{featured&&<img src={imageUrl(featured.photos[0].url)} width="600" height="680" fetchpriority="high" alt={featured.photos[0].alt||`${serviceLabels[featured.serviceType]||'Completed'} work in ${featured.city}`}/>}<span class="photo-label">OUR WORK{featured&&` / ${featured.city.toUpperCase()}`}</span></div><div class="warranty"><div><strong>Completed by our local crew</strong><span>Water heater and plumbing work across the Bay Area.</span></div></div></div></div></div></section>
+  <div class="trust"><div class="wrap"><span>✓ Gas tank</span><span>✓ Tankless</span><span>✓ Heat pump</span><span>✓ Plumbing</span></div></div>
+
+  <section class="section wrap all-work" id="portfolio" aria-labelledby="portfolio-heading">
+    <div class="section-heading"><div><p class="eyebrow">FIND WORK LIKE YOURS</p><h2 id="portfolio-heading">Completed jobs.<br/>One place.</h2></div></div>
+    <div class="work-filters" role="group" aria-label="Filter completed work by service">
+      {categories.map((category,index)=><button type="button" class="work-filter" data-filter={category.value} aria-pressed={index===0?'true':'false'} aria-controls="work-grid">{category.label}</button>)}
+    </div>
+    <p class="work-status" id="work-status" aria-live="polite"></p>
+    <div class="work-grid" id="work-grid">
+      {jobs.map(job=>{
+        const photo=job.photos?.[0];
+        const description=job.description||job.workPerformed||job.problem;
+        return <article class="work-card" id={`portfolio-job-${job._id}`} data-category={job.serviceType}>
+          <a class="work-card-link" href={jobHref(job)} aria-label={`View ${displayJobTitle(job)} in ${job.city} on the ${serviceLabels[job.serviceType]||'service'} page`}>
+            <div class="work-card-photo">
+              {photo?<img src={imageUrl(photo.url)} alt={photo.alt||`${serviceLabels[job.serviceType]||'Completed'} work in ${job.city}`} loading="lazy" width="600" height="680"/>:<span class="work-card-placeholder">Completed work photo</span>}
+              <span class:list={['work-card-origin',{'is-recent':!job.legacyId}]}>{job.legacyId?'FROM OUR PORTFOLIO':'RECENT JOB'}</span>
+            </div>
+            <div class="work-card-copy">
+              <p class="eyebrow">{job.city}{job.zip&&<> · {job.zip}</>} · {serviceLabels[job.serviceType]||job.serviceType.replaceAll('-',' ')}</p>
+              <h3>{displayJobTitle(job)}</h3>
+              {description&&<p class="work-card-description">{description}</p>}
+              <span class="work-card-cta">View this work ↗</span>
+            </div>
+          </a>
+        </article>;
+      })}
+    </div>
+    <div class="work-empty" id="work-empty" hidden><h3>Our plumbing gallery is under construction.</h3><p>Our plumbing team is available now. Contact us to talk through the work you have in mind.</p></div>
+    <div class="portfolio-more"><button type="button" class="button" id="more-work" hidden>Show more work ↓</button></div>
+  </section>
+</ServiceLayout>
+
+<script>
+  const cards=Array.from(document.querySelectorAll<HTMLElement>('.work-card'));
+  const buttons=Array.from(document.querySelectorAll<HTMLButtonElement>('.work-filter'));
+  const more=document.querySelector<HTMLButtonElement>('#more-work')!;
+  const empty=document.querySelector<HTMLElement>('#work-empty')!;
+  const status=document.querySelector<HTMLElement>('#work-status')!;
+  const pageSize=12;
+  let active='all';
+  let limit=pageSize;
+
+  function matches(card:HTMLElement){return active==='all'||card.dataset.category===active;}
+  function render(){
+    const matching=cards.filter(matches);
+    cards.forEach(card=>{card.hidden=!matches(card)||matching.indexOf(card)>=limit;});
+    empty.hidden=matching.length>0;
+    more.hidden=matching.length<=limit;
+    const label=buttons.find(button=>button.dataset.filter===active)?.textContent?.trim()||'All work';
+    status.textContent=matching.length===1?`Showing 1 ${label.toLowerCase()} project`:`Showing ${matching.length} ${label.toLowerCase()} projects`;
+  }
+
+  buttons.forEach(button=>button.addEventListener('click',()=>{
+    active=button.dataset.filter||'all';
+    limit=pageSize;
+    buttons.forEach(item=>item.setAttribute('aria-pressed',String(item===button)));
+    render();
+  }));
+  more.addEventListener('click',()=>{
+    const firstHidden=cards.filter(matches)[limit];
+    limit+=pageSize;
+    render();
+    if(firstHidden){firstHidden.tabIndex=-1;firstHidden.focus({preventScroll:true});}
+  });
+  render();
+</script>

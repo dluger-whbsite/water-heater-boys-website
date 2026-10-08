@@ -3,10 +3,10 @@ import ServicePage from '../../components/ServicePage.astro';
 import {loadJobs} from '../../lib/jobs';
 import {serviceJobs} from '../../lib/feeds.mjs';
 const jobs=serviceJobs(await loadJobs(),'tankless');
-const included=[
- {title:'Plan the conversion.',copy:'We evaluate gas line capacity, vent routing, condensate drainage, available space, water quality, and household demand. That planning matters for both first-time conversions and replacements of existing tankless units.'},
- {title:'Get the connections right.',copy:'Every installation includes replacement of water supply connections, new gas shut-off components, and proper condensate management. When required, we address gas line upgrades and venting changes to meet manufacturer specifications and local code requirements.'},
- {title:'Test before we finish.',copy:'Before completion, each system is tested for proper ignition, temperature stability, and safe operation. Our goal is a clean, serviceable installation that delivers stable performance without shortcuts.'}
+const steps=[
+ {title:'Plan the whole setup.',copy:'We evaluate gas capacity, venting, condensate drainage, available space, water quality, and household demand.'},
+ {title:'Complete the installation.',copy:'We handle the necessary connections and installation work for the selected system and the existing setup.'},
+ {title:'Test before we finish.',copy:'We test ignition, temperature stability, and safe operation before the job is complete.'}
 ];
 const faqs=[
  {q:'Can you replace my tank water heater with tankless?',a:'We handle first-time tankless conversions as well as replacements of existing tankless units. We start by evaluating your home’s gas supply, venting, drainage, installation space, and hot water demand.'},
@@ -15,7 +15,4 @@ const faqs=[
  {q:'How do I get an estimate?',a:'Call us or use the service request form below. Let us know whether you have a tank or tankless water heater now, and what you would like to change.'}
 ];
 ---
-<ServicePage title="Gas Tankless Water Heater Installation in the Bay Area" description="Gas tankless water heater conversions and replacements by Water Heater Boys. See real installations, learn about the installation process, and request an estimate." label="Gas tankless water heaters" headline="Thinking tankless?" emphasis="Let’s plan it right." intro="Converting from a tank or replacing an existing tankless unit? Start with a clear plan for your home’s hot water needs and the installation behind them." introHeading="A smaller system. A bigger planning picture." paragraphs={[
- 'Gas tankless water heater installations involve more planning and technical evaluation than traditional tank systems. Gas sizing, venting configuration, water quality, and overall demand all need to be considered for consistent hot water and long-term reliability.',
- 'Water Heater Boys installs gas tankless water heaters across the Bay Area. Each project starts with an evaluation of your existing setup, so the installation plan addresses the details before work begins.'
- ]} included={included} note={{title:'Professional-grade equipment.',copy:'We install tankless water heaters designed for long-term residential use, with a focus on a clean installation that can be serviced.'}} faqs={faqs} jobs={jobs} workHeading="Our tankless work." alternatives={[{label:'Gas tank water heaters',url:'/services/gas-tank-water-heaters/'},{label:'heat pump water heaters',url:'/services/heat-pump-water-heaters/'}]}/>
+<ServicePage title="Gas Tankless Water Heater Installation in the Bay Area" description="Gas tankless water heater conversions and replacements by Water Heater Boys. See real installations, learn about the installation process, and request an estimate." label="Gas tankless water heaters" headline="Thinking tankless?" emphasis="Let’s plan it right." intro="Converting from a tank or replacing an existing tankless unit? Start with a clear plan for your home’s hot water needs and the installation behind them." infoHeading="A smaller system. A complete plan." infoSummary="Tankless installation starts with the conditions around the unit—not just the unit itself. We plan the setup, complete the necessary work, and test the finished system." steps={steps} note={{title:'Professional-grade equipment.',copy:'We install tankless water heaters designed for long-term residential use, with a focus on a clean installation that can be serviced.'}} faqs={faqs} jobs={jobs} workHeading="Our tankless work." alternatives={[{label:'Gas tank water heaters',url:'/services/gas-tank-water-heaters/'},{label:'heat pump water heaters',url:'/services/heat-pump-water-heaters/'}]}/>
