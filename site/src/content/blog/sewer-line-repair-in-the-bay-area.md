@@ -1,6 +1,6 @@
 ---
-title: "Sewer Line Repair in the Bay Area: When Another Clearing Is Not Enough"
-description: "If your sewer backs up once, it may just be a clog."
+title: "When Does a Sewer Line Need Repair?"
+description: "Repeated sewer backups may point to damaged pipe rather than a simple clog. Learn when inspection and sewer-line repair may be the better next step."
 number: 5
 ---
 

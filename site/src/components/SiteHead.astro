@@ -1,6 +1,12 @@
 ---
-interface Props {title:string; description:string;}
-const {title,description}=Astro.props;
+interface Props {
+  title:string;
+  description:string;
+  pageType?:'website'|'article';
+  datePublished?:string;
+  dateModified?:string;
+}
+const {title,description,pageType='website',datePublished,dateModified}=Astro.props;
 const siteOrigin='https://www.waterheaterboys.com';
 const fullTitle=title.includes('Water Heater Boys')?title:`${title} | Water Heater Boys`;
 const canonical=new URL(Astro.url.pathname,siteOrigin).toString();
@@ -9,13 +15,49 @@ const gaMeasurementId='G-JLE3QE7HQ4';
 const businessSchema={
   '@context':'https://schema.org',
   '@type':'Plumber',
+  '@id':`${siteOrigin}/#business`,
   name:'Water Heater Boys',
   url:siteOrigin,
   telephone:'+1-650-844-2305',
+  logo:{'@type':'ImageObject',url:`${siteOrigin}/assets/2026/03/logo.svg`},
   image:`${siteOrigin}/assets/2026/03/logo.svg`,
+  identifier:{'@type':'PropertyValue',propertyID:'California contractor license',value:'1134458'},
   areaServed:['San Francisco County','San Mateo County','Contra Costa County','Alameda County','Santa Clara County'].map(name=>({'@type':'AdministrativeArea',name})),
   description:'Water heater installation and full-service plumbing for homes across the San Francisco Bay Area.',
 };
+const websiteSchema={
+  '@context':'https://schema.org',
+  '@type':'WebSite',
+  '@id':`${siteOrigin}/#website`,
+  url:siteOrigin,
+  name:'Water Heater Boys',
+  publisher:{'@id':`${siteOrigin}/#business`},
+};
+const pathParts=Astro.url.pathname.split('/').filter(Boolean);
+const labels:Record<string,string>={
+  blog:'Blog',post:'Blog',services:'Services','service-areas':'Service areas',
+  'our-work':'Our work','about-us':'About us',faqs:'FAQs','privacy-policy':'Privacy policy',disclaimer:'Website disclaimer',
+};
+const breadcrumbItems=pathParts.length===0?[]:[
+  {name:'Home',item:`${siteOrigin}/`},
+  ...(pathParts[0]==='post'?[{name:'Blog',item:`${siteOrigin}/blog/`}]:pathParts.length>1?[{name:labels[pathParts[0]]??pathParts[0],item:`${siteOrigin}/${pathParts[0]}/`}]:[]),
+  {name:title,item:canonical},
+];
+const breadcrumbSchema=breadcrumbItems.length?{
+  '@context':'https://schema.org','@type':'BreadcrumbList',
+  itemListElement:breadcrumbItems.map((item,index)=>({'@type':'ListItem',position:index+1,...item})),
+}:undefined;
+const articleSchema=pageType==='article'?{
+  '@context':'https://schema.org','@type':'BlogPosting',
+  headline:title,
+  description,
+  mainEntityOfPage:{'@type':'WebPage','@id':canonical},
+  author:{'@type':'Organization','@id':`${siteOrigin}/#business`,name:'Water Heater Boys'},
+  publisher:{'@id':`${siteOrigin}/#business`},
+  ...(datePublished?{datePublished}:{}),
+  ...(dateModified?{dateModified}:{}),
+}:undefined;
+const schemas=[businessSchema,websiteSchema,breadcrumbSchema,articleSchema].filter(Boolean);
 ---
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width"/>
@@ -23,7 +65,7 @@ const businessSchema={
 <meta name="description" content={description}/>
 <link rel="canonical" href={canonical}/>
 <title>{fullTitle}</title>
-<meta property="og:type" content="website"/>
+<meta property="og:type" content={pageType}/>
 <meta property="og:site_name" content="Water Heater Boys"/>
 <meta property="og:title" content={fullTitle}/>
 <meta property="og:description" content={description}/>
@@ -41,4 +83,4 @@ const businessSchema={
   gtag('config', gaMeasurementId);
 </script>
 </>}
-<script type="application/ld+json" set:html={JSON.stringify(businessSchema)}></script>
+<script type="application/ld+json" set:html={JSON.stringify(schemas)}></script>

@@ -1,5 +1,5 @@
 ---
-title: "Thinking About a Heat Pump Water Heater? What Bay Area Homeowners Should Know"
+title: "Heat Pump Water Heaters for Bay Area Homes"
 description: "Heat pump water heaters are getting a lot more attention in the Bay Area, especially as homeowners start thinking about eventually moving away from gas."
 number: 3
 ---

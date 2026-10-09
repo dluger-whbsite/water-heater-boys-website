@@ -1,6 +1,6 @@
 ---
-title: "Is the Bay Area Banning Gas Water Heaters? What Homeowners Need to Know"
-description: "There has been a lot of confusing information about whether gas water heaters are being \"banned\" in the Bay Area."
+title: "Are Bay Area Gas Water Heaters Being Banned?"
+description: "Understand what the Bay Area's changing equipment rules mean for existing gas water heaters, future replacements, and homeowners planning ahead."
 number: 9
 ---
 

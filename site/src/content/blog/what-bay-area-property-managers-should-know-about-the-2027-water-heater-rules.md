@@ -1,5 +1,5 @@
 ---
-title: "What Bay Area Property Managers Should Know About the New Water Heater Rules"
+title: "Water Heater Rules for Property Managers"
 description: "For property managers, the upcoming Bay Area water heater rules are less about one individual replacement and more about planning."
 number: 1
 ---

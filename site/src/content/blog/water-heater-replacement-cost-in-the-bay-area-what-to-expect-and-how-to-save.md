@@ -1,6 +1,6 @@
 ---
-title: "What Affects Water Heater Replacement Cost in the Bay Area?"
-description: "If you have started getting quotes for a water heater replacement in the Bay Area, you may have noticed that prices can vary quite a bit, even when everyone seems to be quoting the same basic job."
+title: "Bay Area Water Heater Replacement Costs"
+description: "Learn what affects Bay Area water heater replacement pricing, including permits, installation conditions, necessary upgrades, materials, and equipment."
 number: 8
 ---
 

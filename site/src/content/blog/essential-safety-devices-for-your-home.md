@@ -1,6 +1,6 @@
 ---
-title: "Two Safety Upgrades Bay Area Homeowners Should Know About"
-description: "There are two plumbing and gas safety upgrades we are seeing more often in Bay Area homes:"
+title: "Bay Area Home Safety Shut-Off Upgrades"
+description: "Learn how seismic gas shut-off valves and automatic water shut-off systems can help protect Bay Area homes from emergencies and costly damage."
 number: 14
 ---
 

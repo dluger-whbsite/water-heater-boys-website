@@ -1,5 +1,5 @@
 ---
-title: "Should You Install an Electric Tankless Water Heater?"
+title: "Are Electric Tankless Water Heaters Worth It?"
 description: "We get asked about electric tankless water heaters fairly often, especially by homeowners who want to get away from gas but still like the idea of tankless."
 number: 2
 ---

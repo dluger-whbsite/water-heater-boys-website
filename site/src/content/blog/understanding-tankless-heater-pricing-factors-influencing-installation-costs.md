@@ -1,5 +1,5 @@
 ---
-title: "How Much Does a Tankless Water Heater Cost in the Bay Area?"
+title: "Bay Area Tankless Water Heater Costs"
 description: "One of the harder water heater jobs to price over the phone is a tank-to-tankless conversion."
 number: 10
 ---

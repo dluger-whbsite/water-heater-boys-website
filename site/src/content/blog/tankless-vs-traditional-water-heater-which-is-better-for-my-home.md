@@ -1,5 +1,5 @@
 ---
-title: "Tankless vs. Traditional Water Heater: Which Is Better for Your Home?"
+title: "Tankless vs. Traditional Water Heaters"
 description: "If your water heater needs to be replaced, one of the first decisions is whether to install another traditional tank or switch to tankless."
 number: 18
 ---

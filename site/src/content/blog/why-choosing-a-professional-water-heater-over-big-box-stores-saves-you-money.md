@@ -1,6 +1,6 @@
 ---
-title: "Should You Buy a Water Heater From a Big-Box Store or From Your Plumber?"
-description: "We get this question fairly often:"
+title: "Plumber vs. Big-Box Water Heaters"
+description: "Compare buying a water heater through a plumber with purchasing one from a big-box store, including equipment, installation, service, and warranty tradeoffs."
 number: 12
 ---
 

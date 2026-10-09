@@ -1,6 +1,6 @@
 ---
-title: "When Should You Replace a Toilet Instead of Repairing It?"
-description: "Most toilet problems can be repaired."
+title: "When to Replace Rather Than Repair a Toilet"
+description: "Learn which toilet problems usually call for a simple repair and when recurring clogs, cracks, leaks, or poor performance make replacement worthwhile."
 number: 7
 ---
 
