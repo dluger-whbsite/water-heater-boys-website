@@ -16,10 +16,11 @@ test('Our Work route builds with accessible filters and all water-heater categor
  assert.match(html,/id="work-empty"/);
 });
 
-test('primary navigation and homepage portfolio link use the unified route',()=>{
+test('primary navigation includes Our Work and Blog everywhere',()=>{
  for(const file of ['site/src/components/ApprovedHome.tsx','site/src/layouts/ServiceLayout.astro','site/src/layouts/LegalLayout.astro']){
   const source=read(file);
   assert.match(source,/href="\/our-work\/">Our work/);
+  assert.match(source,/href="\/blog\/">Blog/);
  }
  const home=read('site/src/components/ApprovedHome.tsx');
  assert.match(home,/href="\/our-work\/">See more installations/);
