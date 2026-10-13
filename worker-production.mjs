@@ -10,7 +10,8 @@ const securityHeaders={
 export default {
   async fetch(request,env){
     const url=new URL(request.url);
-    if(url.hostname==='waterheaterboys.com'){
+    if(url.protocol!=='https:'||url.hostname==='waterheaterboys.com'){
+      url.protocol='https:';
       url.hostname='www.waterheaterboys.com';
       return Response.redirect(url.toString(),301);
     }

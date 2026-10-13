@@ -38,6 +38,14 @@ test('apex redirects to canonical www host',async()=>{
   assert.equal(response.headers.get('location'),'https://www.waterheaterboys.com/services/plumbing/?source=test');
 });
 
+test('http redirects to the canonical https host',async()=>{
+  for(const host of ['waterheaterboys.com','www.waterheaterboys.com']){
+    const response=await worker.fetch(new Request(`http://${host}/services/plumbing/?source=test`),env);
+    assert.equal(response.status,301,host);
+    assert.equal(response.headers.get('location'),'https://www.waterheaterboys.com/services/plumbing/?source=test',host);
+  }
+});
+
 test('production worker blocks internal workflow and protects missing pages from indexing',async()=>{
   const workflow=await worker.fetch(new Request('https://www.waterheaterboys.com/workflow/'),env);
   assert.equal(workflow.status,404);
