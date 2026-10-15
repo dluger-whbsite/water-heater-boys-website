@@ -20,6 +20,8 @@ for(const size of ['40','50','75']){
     assert.match(html,/whb_quote_click/);
     assert.match(html,new RegExp(`const tankSize = \"${size}\"`));
     assert.match(html,/tank_size:\s*`\$\{tankSize\}_gallon`/);
+    assert.match(html,/Read our 100\+ reviews ↗/);
+    assert.doesNotMatch(html,/Read our 98 reviews/);
   });
 }
 
