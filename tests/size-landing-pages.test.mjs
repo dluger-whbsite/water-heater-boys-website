@@ -29,3 +29,20 @@ test('40- and 75-gallon pages do not reuse the 50-gallon product cutout',async()
     assert.doesNotMatch(html,/bradford-white-50-gallon\.png/);
   }
 });
+
+test('size-specific paid offers use only the approved prices',async()=>{
+  const forty=await readFile(join(root,'40-gallon-gas-water-heater-replacement','index.html'),'utf8');
+  const fifty=await readFile(join(root,'50-gallon-gas-water-heater-replacement','index.html'),'utf8');
+  const seventyFive=await readFile(join(root,'75-gallon-gas-water-heater-replacement','index.html'),'utf8');
+
+  assert.match(forty,/\$1,850 installed/);
+  assert.match(forty,/qualifying standard 40-gallon gas water heater replacements/);
+  assert.doesNotMatch(forty,/\$1,950/);
+
+  assert.match(fifty,/\$1,950 installed/);
+  assert.match(fifty,/qualifying standard 50-gallon gas water heater replacements/);
+  assert.doesNotMatch(fifty,/\$1,850/);
+
+  assert.doesNotMatch(seventyFive,/\$1,850|\$1,950/);
+  assert.match(seventyFive,/job-specific quote for a 75-gallon replacement/);
+});
