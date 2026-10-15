@@ -23,11 +23,27 @@ for(const size of ['40','50','75']){
   });
 }
 
-test('40- and 75-gallon pages do not reuse the 50-gallon product cutout',async()=>{
-  for(const size of ['40','75']){
+test('all three landing pages use the main homepage hero photo at the top',async()=>{
+  for(const size of ['40','50','75']){
     const html=await readFile(join(root,`${size}-gallon-gas-water-heater-replacement`,'index.html'),'utf8');
-    assert.doesNotMatch(html,/bradford-white-50-gallon\.png/);
+    assert.match(html,/<img class="hero-photo" src="\/assets\/brand\/water-heater-boys-hero\.jpg"/);
+    assert.equal((html.match(/src="\/assets\/brand\/water-heater-boys-hero\.jpg"/g)||[]).length,1);
   }
+});
+
+test('only the 75-gallon page keeps its approved lower installation photo',async()=>{
+  const forty=await readFile(join(root,'40-gallon-gas-water-heater-replacement','index.html'),'utf8');
+  const fifty=await readFile(join(root,'50-gallon-gas-water-heater-replacement','index.html'),'utf8');
+  const seventyFive=await readFile(join(root,'75-gallon-gas-water-heater-replacement','index.html'),'utf8');
+  const lowerSeventyFivePhoto='63bb1a1902c009cf2d540e27c8984edbfbda9483';
+
+  assert.doesNotMatch(forty,new RegExp(lowerSeventyFivePhoto));
+  assert.doesNotMatch(fifty,new RegExp(lowerSeventyFivePhoto));
+  assert.match(seventyFive,new RegExp(lowerSeventyFivePhoto));
+  const retiredUpperPhotos=/035206e64855275cdfd345eefcbd2081fbb45ecd|19de1ea10dbe10bb67e6251c17c89f3ad54cbbd9|809fd11cbb25fa0e64dcdb67e5b5b1cb316dcf76|ccbeae2a7f8b3aea6a453effb588103bc8e46129|bradford-white-50-gallon\.png/;
+  assert.doesNotMatch(forty,retiredUpperPhotos);
+  assert.doesNotMatch(fifty,retiredUpperPhotos);
+  assert.doesNotMatch(seventyFive,/ccbeae2a7f8b3aea6a453effb588103bc8e46129|bradford-white-50-gallon\.png/);
 });
 
 test('size-specific paid offers use only the approved prices',async()=>{

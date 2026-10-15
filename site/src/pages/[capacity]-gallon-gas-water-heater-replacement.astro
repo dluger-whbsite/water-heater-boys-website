@@ -12,11 +12,6 @@ const pages = {
     offerPrice: '$1,850',
     offerDisclosure: '$1,850 applies to qualifying standard 40-gallon gas water heater replacements verified from homeowner photos. Additional required work, permit costs, unusual access, venting, or code upgrades may affect the final price. Limited-time offer; pricing subject to change.',
     facts: ['Bradford White 40-gallon tank', 'Complete standard installation', '1-year workmanship warranty'],
-    heroImage: 'https://cdn.sanity.io/images/28nfeuw0/production/035206e64855275cdfd345eefcbd2081fbb45ecd-1170x2532.png?w=1200&auto=format&fit=max&q=85',
-    heroAlt: 'Bradford White 40-gallon gas water heater installed in Concord by Water Heater Boys',
-    heroCaption: 'A real 40-gallon Water Heater Boys installation in Concord',
-    proofImage: 'https://cdn.sanity.io/images/28nfeuw0/production/19de1ea10dbe10bb67e6251c17c89f3ad54cbbd9-467x830.jpg?w=1000&auto=format&fit=max&q=85',
-    proofAlt: 'Bradford White 40-gallon gas tank installation by Water Heater Boys',
     proofCopy: 'A 40-gallon replacement still needs the right venting, gas supply, connections, and safety details. We review the whole setup and explain the work before you approve it.',
     faqSizing: 'If your existing 40-gallon tank served the home well, a like-for-like replacement may make sense. We still confirm your household needs and installation before recommending equipment.',
     faqPrice: 'The $1,850 offer includes a Bradford White 40-gallon gas water heater, standard installation, new water supply lines, a new gas line and shutoff valve, removal of the old heater, and a one-year workmanship warranty. We confirm eligibility from photos before scheduling.'
@@ -31,11 +26,6 @@ const pages = {
     offerPrice: '$1,950',
     offerDisclosure: '$1,950 applies to qualifying standard 50-gallon gas water heater replacements verified from homeowner photos. Additional required work, permit costs, unusual access, venting, or code upgrades may affect the final price. Limited-time offer; pricing subject to change.',
     facts: ['Bradford White 50-gallon tank', 'Complete standard installation', '1-year workmanship warranty'],
-    heroImage: 'https://cdn.sanity.io/images/28nfeuw0/production/809fd11cbb25fa0e64dcdb67e5b5b1cb316dcf76-363x645.jpg?w=1000&auto=format&fit=max&q=85',
-    heroAlt: 'Bradford White 50-gallon gas water heater installed in Walnut Creek by Water Heater Boys',
-    heroCaption: 'A real 50-gallon Water Heater Boys installation in Walnut Creek',
-    proofImage: '/gas-tank-replacement/assets/bradford-white-50-gallon.png',
-    proofAlt: 'Bradford White 50-gallon gas water heater',
     proofCopy: 'We install Bradford White 50-gallon gas tank water heaters whenever possible, with the connections and safety work your particular installation requires.',
     faqSizing: 'A 50-gallon tank is common, but the right choice depends on your household’s hot-water use and the existing installation. We confirm the fit before recommending equipment.',
     faqPrice: 'The $1,950 offer includes a Bradford White 50-gallon gas water heater, standard installation, new water supply lines, a new gas line and shutoff valve, removal of the old heater, and a one-year workmanship warranty. We confirm eligibility from photos before scheduling.'
@@ -50,11 +40,6 @@ const pages = {
     offerPrice: null,
     offerDisclosure: null,
     facts: ['Bradford White options', 'Complete professional installation', '1-year workmanship warranty'],
-    heroImage: 'https://cdn.sanity.io/images/28nfeuw0/production/ccbeae2a7f8b3aea6a453effb588103bc8e46129-1472x2617.jpg?w=1200&auto=format&fit=max&q=85',
-    heroAlt: 'Bradford White 75-gallon gas water heater installed in Danville by Water Heater Boys',
-    heroCaption: 'A real 75-gallon Water Heater Boys installation in Danville',
-    proofImage: 'https://cdn.sanity.io/images/28nfeuw0/production/63bb1a1902c009cf2d540e27c8984edbfbda9483-607x1079.jpg?w=1000&auto=format&fit=max&q=85',
-    proofAlt: 'Bradford White 75-gallon gas tank replacement by Water Heater Boys',
     proofCopy: 'Large-capacity replacements can involve recirculation, expansion equipment, access, venting, and other installation details. We review those items before confirming the quote.',
     faqSizing: 'A 75-gallon tank may suit a home with substantial hot-water demand or an existing system designed around that capacity. We verify the home and installation before recommending a replacement.',
     faqPrice: 'We provide a job-specific quote for a 75-gallon replacement after reviewing the equipment, access, venting, connections, and any recirculation or expansion components. You receive the price before approving the work.'
@@ -67,6 +52,12 @@ export function getStaticPaths() {
 
 const page = pages[Astro.params.capacity as keyof typeof pages];
 const canonical = `https://www.waterheaterboys.com/${page.size}-gallon-gas-water-heater-replacement/`;
+const heroImage = '/assets/brand/water-heater-boys-hero.jpg';
+const heroAlt = 'Water Heater Boys branded Bradford White gas water heater installation';
+const lowerPhoto = page.size === '75' ? {
+  src: 'https://cdn.sanity.io/images/28nfeuw0/production/63bb1a1902c009cf2d540e27c8984edbfbda9483-607x1079.jpg?w=1000&auto=format&fit=max&q=85',
+  alt: 'Bradford White 75-gallon gas tank replacement by Water Heater Boys'
+} : null;
 ---
 <!doctype html>
 <html lang="en">
@@ -91,8 +82,7 @@ const canonical = `https://www.waterheaterboys.com/${page.size}-gallon-gas-water
       {page.offerDisclosure && <p class="fine"><strong>Offer details:</strong> {page.offerDisclosure}</p>}
       <div class="review"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><strong>5.0 on Google</strong><a href="https://share.google/4STw9F4WMRExtb7Gn" target="_blank" rel="noopener">Read our 98 reviews ↗</a></div>
       <div class="facts">{page.facts.map((fact) => <span>{fact}</span>)}</div>
-      <img class="hero-photo" src={page.heroImage} width="750" height="500" fetchpriority="high" alt={page.heroAlt} />
-      <p class="caption">{page.heroCaption}</p>
+      <img class="hero-photo" src={heroImage} width="853" height="1844" fetchpriority="high" alt={heroAlt} />
     </div>
     <aside class="quote" id="quote"><p class="eyebrow">{page.offerPrice ? `CHECK YOUR HOME FOR THE ${page.offerPrice} OFFER` : `REQUEST A ${page.size}-GALLON REPLACEMENT QUOTE`}</p><h2>{page.offerPrice ? 'See if your replacement qualifies.' : 'Tell us about your current setup.'}</h2><p class="sub">{page.offerPrice ? 'Send photos of your current heater and surrounding connections. Our team will confirm the offer before you schedule.' : 'Include the current tank size and photos if you have them. Our team will confirm the next steps.'}</p>
       <div class="jobber-embed">
@@ -109,7 +99,7 @@ const canonical = `https://www.waterheaterboys.com/${page.size}-gallon-gas-water
       <article class="card"><span class="number">02 / GET A CLEAR QUOTE</span><h3>Equipment and scope confirmed.</h3><p>We review the setup, explain any necessary work, and confirm the quote before you decide.</p></article>
       <article class="card"><span class="number">03 / WE HANDLE THE INSTALL</span><h3>Your replacement, completed right.</h3><p>We install the new tank, complete the required connections, remove the old unit, and test the finished system.</p></article>
     </div></section>
-    <section class="section white"><div class="wrap proof"><img src={page.proofImage} width="600" height="680" loading="lazy" alt={page.proofAlt} /><div><p class="eyebrow">REAL {page.size}-GALLON WORK</p><h2>The right photo.<br />The right capacity.</h2><p>{page.proofCopy}</p><p>We install Bradford White gas tank water heaters whenever possible. If availability or your preference calls for another manufacturer, we use reputable professional-grade equipment.</p><div class="size-links" aria-label="Gas water heater sizes"><a href="/40-gallon-gas-water-heater-replacement/" aria-current={page.size === '40' ? 'page' : undefined}>40 gallon</a><a href="/50-gallon-gas-water-heater-replacement/" aria-current={page.size === '50' ? 'page' : undefined}>50 gallon</a><a href="/75-gallon-gas-water-heater-replacement/" aria-current={page.size === '75' ? 'page' : undefined}>75 gallon</a><a href="/gas-tank-replacement/">Not sure?</a></div><div class="review"><span class="stars" aria-hidden="true">★★★★★</span><strong>5.0 · 98 Google reviews</strong></div><a class="button" href="https://share.google/4STw9F4WMRExtb7Gn" target="_blank" rel="noopener">Read our Google reviews ↗</a><p class="fine">Rating and review count verified October 9, 2026.</p></div></div></section>
+    <section class="section white"><div class:list={['wrap', 'proof', {'proof-text-only': !lowerPhoto}]}>{lowerPhoto && <img src={lowerPhoto.src} width="600" height="680" loading="lazy" alt={lowerPhoto.alt} />}<div><p class="eyebrow">{lowerPhoto ? `REAL ${page.size}-GALLON WORK` : `YOUR ${page.size}-GALLON REPLACEMENT`}</p>{lowerPhoto ? <h2>The right photo.<br />The right capacity.</h2> : <h2>The right tank.<br />The right installation.</h2>}<p>{page.proofCopy}</p><p>We install Bradford White gas tank water heaters whenever possible. If availability or your preference calls for another manufacturer, we use reputable professional-grade equipment.</p><div class="size-links" aria-label="Gas water heater sizes"><a href="/40-gallon-gas-water-heater-replacement/" aria-current={page.size === '40' ? 'page' : undefined}>40 gallon</a><a href="/50-gallon-gas-water-heater-replacement/" aria-current={page.size === '50' ? 'page' : undefined}>50 gallon</a><a href="/75-gallon-gas-water-heater-replacement/" aria-current={page.size === '75' ? 'page' : undefined}>75 gallon</a><a href="/gas-tank-replacement/">Not sure?</a></div><div class="review"><span class="stars" aria-hidden="true">★★★★★</span><strong>5.0 · 98 Google reviews</strong></div><a class="button" href="https://share.google/4STw9F4WMRExtb7Gn" target="_blank" rel="noopener">Read our Google reviews ↗</a><p class="fine">Rating and review count verified October 9, 2026.</p></div></div></section>
     <section class="section white"><div class="wrap faq"><div><p class="eyebrow">BEFORE YOU BOOK</p><h2>A few good<br />questions.</h2><a href="tel:+16508442305">Talk to our team ↗</a></div><div>
       <details><summary>Is a {page.size}-gallon tank right for my home?</summary><p>{page.faqSizing}</p></details>
       <details><summary>How soon can you replace my water heater?</summary><p>Call us about same-day availability. Replacements are typically scheduled within one to two days, subject to scheduling and equipment availability.</p></details>
