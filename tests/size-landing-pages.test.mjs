@@ -14,13 +14,17 @@ for(const size of ['40','50','75']){
     assert.match(html,/name="robots" content="noindex,nofollow"/);
     assert.match(html,/\(650\) 844-2305/);
     assert.doesNotMatch(html,/925[) .-]*788[ .-]*4555/);
-    assert.match(html,/form_id=2079447/);
-    assert.match(html,/G-JLE3QE7HQ4/);
+    const formId = {'40': '5308180', '50': '5308159', '75': '5308187'}[size];
+    assert.match(html,new RegExp(`form_id=${formId}`));
+    assert.match(html,new RegExp(`clienthub_id="d4758da6-69c1-4a9c-9551-742eb7fb7b7c-${formId}"`));
+    assert.match(html,/src="\/scripts\/landing-attribution\.js"/);
+    assert.match(html,/src="\/scripts\/jobber-landing-form\.js"/);
+    assert.ok(html.indexOf('/scripts/landing-attribution.js') < html.indexOf('/scripts/jobber-landing-form.js'));
     assert.match(html,/whb_phone_click/);
     assert.match(html,/whb_quote_click/);
     assert.match(html,new RegExp(`const tankSize = \"${size}\"`));
     assert.match(html,/tank_size:\s*`\$\{tankSize\}_gallon`/);
-    assert.match(html,/Read our 100\+ reviews ↗/);
+    assert.match(html,/Read our 100\+ Google reviews ↗/);
     assert.doesNotMatch(html,/Read our 98 reviews/);
   });
 }
@@ -37,7 +41,7 @@ test('only the 75-gallon page keeps its approved lower installation photo',async
   const forty=await readFile(join(root,'40-gallon-gas-water-heater-replacement','index.html'),'utf8');
   const fifty=await readFile(join(root,'50-gallon-gas-water-heater-replacement','index.html'),'utf8');
   const seventyFive=await readFile(join(root,'75-gallon-gas-water-heater-replacement','index.html'),'utf8');
-  const lowerSeventyFivePhoto='63bb1a1902c009cf2d540e27c8984edbfbda9483';
+  const lowerSeventyFivePhoto='75-gallon-installation.png';
 
   assert.doesNotMatch(forty,new RegExp(lowerSeventyFivePhoto));
   assert.doesNotMatch(fifty,new RegExp(lowerSeventyFivePhoto));
@@ -53,11 +57,11 @@ test('size-specific paid offers use only the approved prices',async()=>{
   const fifty=await readFile(join(root,'50-gallon-gas-water-heater-replacement','index.html'),'utf8');
   const seventyFive=await readFile(join(root,'75-gallon-gas-water-heater-replacement','index.html'),'utf8');
 
-  assert.match(forty,/\$1,850 installed/);
+  assert.match(forty,/\$1,800 installed/);
   assert.match(forty,/qualifying standard 40-gallon gas water heater replacements/);
   assert.doesNotMatch(forty,/\$1,950/);
 
-  assert.match(fifty,/\$1,950 installed/);
+  assert.match(fifty,/\$1,900 installed/);
   assert.match(fifty,/qualifying standard 50-gallon gas water heater replacements/);
   assert.doesNotMatch(fifty,/\$1,850/);
 

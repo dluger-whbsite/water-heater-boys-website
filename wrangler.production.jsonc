@@ -10,6 +10,7 @@
     "logs": { "enabled": true, "head_sampling_rate": 1 },
     "traces": { "enabled": true, "head_sampling_rate": 0.01 }
   },
+  "build": {"command": "node scripts/verify-paid-landings.mjs"},
   "assets": {
     "directory": "./site/dist",
     "binding": "ASSETS",

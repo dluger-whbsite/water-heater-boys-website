@@ -8,13 +8,13 @@ const pages = {
     description: 'Qualifying 40-gallon gas water heater replacements installed for $1,850 across the Bay Area by Water Heater Boys.',
     headline: '40-gallon replacement.',
     emphasis: 'Handled right.',
-    intro: 'A straightforward replacement offer for qualifying Bay Area homes. Send us photos of your current setup so our team can confirm the scope and price before scheduling the work.',
+    intro: 'A Bradford White water heater, professional standard installation, and removal of your old tank—all handled by your local Water Heater Boys team.',
     offerPrice: '$1,850',
-    offerDisclosure: '$1,850 applies to qualifying standard 40-gallon gas water heater replacements verified from homeowner photos. Additional required work, permit costs, unusual access, venting, or code upgrades may affect the final price. Limited-time offer; pricing subject to change.',
+    offerDisclosure: 'Standard replacements only. Final pricing confirmed after reviewing homeowner photos. Additional work, permits, access, venting, or code upgrades may affect the price.',
     facts: ['Bradford White 40-gallon tank', 'Complete standard installation', '1-year workmanship warranty'],
     proofCopy: 'A 40-gallon replacement still needs the right venting, gas supply, connections, and safety details. We review the whole setup and explain the work before you approve it.',
     faqSizing: 'If your existing 40-gallon tank served the home well, a like-for-like replacement may make sense. We still confirm your household needs and installation before recommending equipment.',
-    faqPrice: 'The $1,850 offer includes a Bradford White 40-gallon gas water heater, standard installation, new water supply lines, a new gas line and shutoff valve, removal of the old heater, and a one-year workmanship warranty. We confirm eligibility from photos before scheduling.'
+    faqPrice: 'The regular $1,850 price is $1,800 with the $50 winter offer. Standard installation includes a Bradford White 40-gallon gas water heater, standard installation, new water supply lines, a new gas line and shutoff valve, removal of the old heater, and a one-year workmanship warranty. The price applies to qualifying standard 40-gallon gas water heater replacements. We confirm final pricing after reviewing homeowner photos.'
   },
   '50': {
     size: '50',
@@ -22,13 +22,13 @@ const pages = {
     description: 'Qualifying 50-gallon gas water heater replacements installed for $1,950 across the Bay Area by Water Heater Boys.',
     headline: '50-gallon replacement.',
     emphasis: 'Handled right.',
-    intro: 'A straightforward replacement offer for qualifying Bay Area homes. Send us photos of your current setup so our team can confirm the scope and price before scheduling the work.',
+    intro: 'A Bradford White water heater, professional standard installation, and removal of your old tank—all handled by your local Water Heater Boys team.',
     offerPrice: '$1,950',
-    offerDisclosure: '$1,950 applies to qualifying standard 50-gallon gas water heater replacements verified from homeowner photos. Additional required work, permit costs, unusual access, venting, or code upgrades may affect the final price. Limited-time offer; pricing subject to change.',
+    offerDisclosure: 'Standard replacements only. Final pricing confirmed after reviewing homeowner photos. Additional work, permits, access, venting, or code upgrades may affect the price.',
     facts: ['Bradford White 50-gallon tank', 'Complete standard installation', '1-year workmanship warranty'],
     proofCopy: 'We install Bradford White 50-gallon gas tank water heaters whenever possible, with the connections and safety work your particular installation requires.',
     faqSizing: 'A 50-gallon tank is common, but the right choice depends on your household’s hot-water use and the existing installation. We confirm the fit before recommending equipment.',
-    faqPrice: 'The $1,950 offer includes a Bradford White 50-gallon gas water heater, standard installation, new water supply lines, a new gas line and shutoff valve, removal of the old heater, and a one-year workmanship warranty. We confirm eligibility from photos before scheduling.'
+    faqPrice: 'The regular $1,950 price is $1,900 with the $50 winter offer. Standard installation includes a Bradford White 50-gallon gas water heater, standard installation, new water supply lines, a new gas line and shutoff valve, removal of the old heater, and a one-year workmanship warranty. The price applies to qualifying standard 50-gallon gas water heater replacements. We confirm final pricing after reviewing homeowner photos.'
   },
   '75': {
     size: '75',
@@ -36,7 +36,7 @@ const pages = {
     description: '75-gallon gas water heater replacement across the Bay Area. Get a clear assessment of the tank, access, venting, and related equipment.',
     headline: '75-gallon replacement.',
     emphasis: 'Capacity handled right.',
-    intro: 'Replacing an aging or failed 75-gallon gas tank? We’ll review the existing heater, access, venting, and any recirculation or expansion equipment, then confirm the scope and price before scheduling. Installation timing is subject to equipment and appointment availability.',
+    intro: 'Replace your aging or failed 75-gallon gas water heater with help from your local Bay Area team. Request your quote to get started.',
     offerPrice: null,
     offerDisclosure: null,
     facts: ['Bradford White options', 'Complete professional installation', '1-year workmanship warranty'],
@@ -51,11 +51,16 @@ export function getStaticPaths() {
 }
 
 const page = pages[Astro.params.capacity as keyof typeof pages];
+const winterDiscount = page.size === '75' ? '$100' : '$50';
+const winterPrice = page.size === '40' ? '$1,800' : '$1,900';
+const jobberFormId = {'40': '5308180', '50': '5308159', '75': '5308187'}[page.size];
+const jobberHubId = 'd4758da6-69c1-4a9c-9551-742eb7fb7b7c';
+const jobberEmbedId = `${jobberHubId}-${jobberFormId}`;
 const canonical = `https://www.waterheaterboys.com/${page.size}-gallon-gas-water-heater-replacement/`;
 const heroImage = '/assets/brand/water-heater-boys-hero.jpg';
 const heroAlt = 'Water Heater Boys branded Bradford White gas water heater installation';
 const lowerPhoto = page.size === '75' ? {
-  src: 'https://cdn.sanity.io/images/28nfeuw0/production/63bb1a1902c009cf2d540e27c8984edbfbda9483-607x1079.jpg?w=1000&auto=format&fit=max&q=85',
+  src: '/assets/brand/75-gallon-installation.png',
   alt: 'Bradford White 75-gallon gas tank replacement by Water Heater Boys'
 } : null;
 ---
@@ -69,6 +74,7 @@ const lowerPhoto = page.size === '75' ? {
   <link rel="canonical" href={canonical} />
   <link rel="preconnect" href="https://cdn.sanity.io" crossorigin />
   <title>{page.title}</title>
+<script is:inline src="/scripts/landing-attribution.js"></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -76,52 +82,42 @@ const lowerPhoto = page.size === '75' ? {
   <header><div class="wrap"><a href="https://www.waterheaterboys.com/" aria-label="Water Heater Boys home"><img class="logo" src="/gas-tank-replacement/assets/logo.svg" alt="Water Heater Boys" /></a><div class="right"><a href="tel:+16508442305">(650) 844-2305</a><a class="button" href="#quote">Get a quote ↗</a></div></div></header>
   <main id="main">
     <section class="hero wrap"><div>
-      <p class="eyebrow">{page.size}-GALLON GAS WATER HEATER REPLACEMENT</p>
-      {page.offerPrice ? <h1>{page.size}-gallon gas water heater.<br /><em>{page.offerPrice} installed.</em></h1> : <h1>{page.headline}<br />Hot water.<br /><em>{page.emphasis}</em></h1>}
-      <p class="intro">{page.intro}</p>
-      {page.offerDisclosure && <p class="fine"><strong>Offer details:</strong> {page.offerDisclosure}</p>}
-      <div class="review"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><strong>5.0 on Google</strong><a href="https://share.google/4STw9F4WMRExtb7Gn" target="_blank" rel="noopener">Read our 100+ reviews ↗</a></div>
-      <div class="facts">{page.facts.map((fact) => <span>{fact}</span>)}</div>
+      <p class="winter-label">WINTER OFFER · SAVE {winterDiscount}</p><p class="eyebrow">{page.size}-GALLON GAS WATER HEATER REPLACEMENT</p>
+      {page.offerPrice ? <h1>{page.size}-gallon gas water heater.<br /><em>{winterPrice} installed.</em></h1> : <h1>{page.headline}<br />Hot water.<br /><em>{page.emphasis}</em></h1>}
+      {page.offerPrice && <p class="winter-price">Regularly <s>{page.offerPrice}</s></p>}<p class="winter-scope">{page.offerPrice ? "For qualifying standard replacements. Limited-time offer." : "Discount applied to your installation quote. Limited-time offer."}</p><a class="button winter-cta" href="#quote">Get a quote ↗</a><p class="intro">{page.intro}</p>
+      <div class="review"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><strong>5.0 on Google</strong><a href="https://share.google/4STw9F4WMRExtb7Gn" target="_blank" rel="noopener">Read our 100+ Google reviews ↗</a></div>
       <img class="hero-photo" src={heroImage} width="853" height="1844" fetchpriority="high" alt={heroAlt} />
     </div>
-    <aside class="quote" id="quote"><p class="eyebrow">{page.offerPrice ? `CHECK YOUR HOME FOR THE ${page.offerPrice} OFFER` : `REQUEST A ${page.size}-GALLON REPLACEMENT QUOTE`}</p><h2>{page.offerPrice ? 'See if your replacement qualifies.' : 'Tell us about your current setup.'}</h2><p class="sub">{page.offerPrice ? 'Send photos of your current heater and surrounding connections. Our team will confirm the offer before you schedule.' : 'Include the current tank size and photos if you have them. Our team will confirm the next steps.'}</p>
+    <aside class="quote" id="quote"><p class="eyebrow">LET’S GET YOUR HOT WATER BACK</p><h2>Request your replacement quote</h2><p class="sub">Leave your name and phone number. We’ll call to discuss your replacement and confirm pricing.</p>
       <div class="jobber-embed">
-        <div id="d4758da6-69c1-4a9c-9551-742eb7fb7b7c-2079447"></div>
+        <div id={jobberEmbedId}></div>
         <link rel="stylesheet" href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css" media="screen" />
-        <script is:inline src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js" clienthub_id="d4758da6-69c1-4a9c-9551-742eb7fb7b7c-2079447" form_url="https://clienthub.getjobber.com/client_hubs/d4758da6-69c1-4a9c-9551-742eb7fb7b7c/public/work_request/embedded_work_request_form?form_id=2079447"></script>
+        <script is:inline src="/scripts/jobber-landing-form.js" clienthub_id={jobberEmbedId} form_url={`https://clienthub.getjobber.com/client_hubs/${jobberHubId}/public/work_request/embedded_work_request_form?form_id=${jobberFormId}`}></script>
       </div>
       <p class="fine">Submitting this form sends your request to Water Heater Boys through Jobber. <a href="https://www.waterheaterboys.com/privacy-policy/">Privacy policy</a>.</p>
       <div class="call-alternative"><span class="eyebrow">PREFER TO TALK?</span><br /><a href="tel:+16508442305">(650) 844-2305 ↗</a><p>Mon–Fri 7 a.m.–6 p.m. · Sat–Sun 8 a.m.–5 p.m. Pacific</p></div>
     </aside></section>
     <div class="strip"><div class="wrap"><span><b>✓</b> Local, family-run team</span><span><b>✓</b> Straightforward quotes</span><span><b>✓</b> Professional-grade equipment</span><span><b>✓</b> 1-year labor warranty</span></div></div>
-    <section class="section wrap"><p class="eyebrow">A CLEAR PATH TO REPLACEMENT</p><h2>A page—and a plan—for the tank you need.</h2><p class="section-intro">You came here for a {page.size}-gallon replacement, so every step starts with that capacity. We still verify the home and existing installation before recommending equipment or confirming a price.</p><div class="cards">
-      <article class="card"><span class="number">01 / SEND THE BASICS</span><h3>Show us the current heater.</h3><p>Share your location, the {page.size}-gallon size, and photos of the tank and surrounding connections.</p></article>
-      <article class="card"><span class="number">02 / GET A CLEAR QUOTE</span><h3>Equipment and scope confirmed.</h3><p>We review the setup, explain any necessary work, and confirm the quote before you decide.</p></article>
+    <section class="section wrap"><p class="eyebrow">A SIMPLE PATH TO HOT WATER</p><h2>Know what happens next.</h2><p class="section-intro">Start with a quote request for your {page.size}-gallon replacement. Our team will take it from there.</p><div class="cards">
+      <article class="card"><span class="number">01 / REQUEST YOUR QUOTE</span><h3>Request a callback.</h3><p>Leave your name and phone number. We’ll call for the details.</p></article>
+      <article class="card"><span class="number">02 / WE FOLLOW UP</span><h3>A clear quote before you decide.</h3><p>Our team confirms the installation details and price. You approve the quote before work begins.</p></article>
       <article class="card"><span class="number">03 / WE HANDLE THE INSTALL</span><h3>Your replacement, completed right.</h3><p>We install the new tank, complete the required connections, remove the old unit, and test the finished system.</p></article>
     </div></section>
-    <section class="section white"><div class:list={['wrap', 'proof', {'proof-text-only': !lowerPhoto}]}>{lowerPhoto && <img src={lowerPhoto.src} width="600" height="680" loading="lazy" alt={lowerPhoto.alt} />}<div><p class="eyebrow">{lowerPhoto ? `REAL ${page.size}-GALLON WORK` : `YOUR ${page.size}-GALLON REPLACEMENT`}</p>{lowerPhoto ? <h2>The right photo.<br />The right capacity.</h2> : <h2>The right tank.<br />The right installation.</h2>}<p>{page.proofCopy}</p><p>We install Bradford White gas tank water heaters whenever possible. If availability or your preference calls for another manufacturer, we use reputable professional-grade equipment.</p><div class="size-links" aria-label="Gas water heater sizes"><a href="/40-gallon-gas-water-heater-replacement/" aria-current={page.size === '40' ? 'page' : undefined}>40 gallon</a><a href="/50-gallon-gas-water-heater-replacement/" aria-current={page.size === '50' ? 'page' : undefined}>50 gallon</a><a href="/75-gallon-gas-water-heater-replacement/" aria-current={page.size === '75' ? 'page' : undefined}>75 gallon</a><a href="/gas-tank-replacement/">Not sure?</a></div><div class="review"><span class="stars" aria-hidden="true">★★★★★</span><strong>5.0 · 98 Google reviews</strong></div><a class="button" href="https://share.google/4STw9F4WMRExtb7Gn" target="_blank" rel="noopener">Read our Google reviews ↗</a><p class="fine">Rating and review count verified October 9, 2026.</p></div></div></section>
+    <section class="section white"><div class:list={['wrap', 'proof', {'proof-text-only': !lowerPhoto}]}>{lowerPhoto && <img src={lowerPhoto.src} width="563" height="857" loading="lazy" alt={lowerPhoto.alt} style="width:100%;height:auto;max-height:none;object-fit:contain" />}<div><p class="eyebrow">{lowerPhoto ? `REAL ${page.size}-GALLON WORK` : `YOUR ${page.size}-GALLON REPLACEMENT`}</p>{lowerPhoto ? <h2>The right photo.<br />The right capacity.</h2> : <h2>The right tank.<br />The right installation.</h2>}<p>{page.proofCopy}</p><p>We install Bradford White gas tank water heaters whenever possible. If availability or your preference calls for another manufacturer, we use reputable professional-grade equipment.</p><div class="size-links" aria-label="Gas water heater sizes"><a href="/40-gallon-gas-water-heater-replacement/" aria-current={page.size === '40' ? 'page' : undefined}>40 gallon</a><a href="/50-gallon-gas-water-heater-replacement/" aria-current={page.size === '50' ? 'page' : undefined}>50 gallon</a><a href="/75-gallon-gas-water-heater-replacement/" aria-current={page.size === '75' ? 'page' : undefined}>75 gallon</a><a href="/gas-tank-replacement/">Not sure?</a></div><div class="review"><span class="stars" aria-hidden="true">★★★★★</span><strong>5.0 · 100+ Google reviews</strong></div><a class="button" href="https://share.google/4STw9F4WMRExtb7Gn" target="_blank" rel="noopener">Read our Google reviews ↗</a></div></div></section>
     <section class="section white"><div class="wrap faq"><div><p class="eyebrow">BEFORE YOU BOOK</p><h2>A few good<br />questions.</h2><a href="tel:+16508442305">Talk to our team ↗</a></div><div>
       <details><summary>Is a {page.size}-gallon tank right for my home?</summary><p>{page.faqSizing}</p></details>
       <details><summary>How soon can you replace my water heater?</summary><p>Call us about same-day availability. Replacements are typically scheduled within one to two days, subject to scheduling and equipment availability.</p></details>
       <details><summary>How much does a {page.size}-gallon replacement cost?</summary><p>{page.faqPrice}</p></details>
       <details><summary>What warranty comes with the installation?</summary><p>We provide a one-year labor warranty. The water heater also carries the manufacturer’s warranty, with coverage confirmed for the model selected.</p></details>
       <details><summary>Do you remove the old water heater?</summary><p>Yes. Removal and disposal of the existing water heater are included in our installations.</p></details>
-    </div></div></section>
-    <section class="end"><div class="wrap"><div><h2>{page.offerPrice ? `See if your home qualifies for ${page.offerPrice}.` : `Let’s get your ${page.size}-gallon replacement sorted.`}</h2><p>{page.offerPrice ? 'Send us the basics and we’ll confirm the offer for your installation.' : 'Start with photos or a conversation. We’ll take it from there.'}</p></div><a class="button dark" href="#quote">{page.offerPrice ? `Check the ${page.offerPrice} offer ↗` : 'Request a replacement quote ↗'}</a></div></section>
+    </div></div>{page.offerDisclosure && <div class="wrap"><p class="fine offer-details"><strong>Winter offer and pricing details:</strong> {winterDiscount} off the regular {page.offerPrice} qualifying standard replacement price. Select the discount checkbox when requesting your quote. Limited-time offer. {page.offerDisclosure}</p></div>}</section>
+    {page.size === '75' && <div class="wrap"><p class="fine offer-details"><strong>Winter offer and pricing details:</strong> $100 off your quoted 75-gallon installation. Select the discount checkbox when requesting your quote. Limited-time offer. Pricing depends on equipment and installation scope, including access, venting, and any additional work. We confirm your price before you approve the work.</p></div>}<section class="end"><div class="wrap"><div><h2>Let’s get your {page.size}-gallon replacement sorted.</h2><p>Fill out the form. Our team will follow up with the next steps.</p></div><a class="button dark" href="#quote">Request a replacement quote ↗</a></div></section>
   </main>
   <footer><div class="wrap"><img class="logo" src="/gas-tank-replacement/assets/logo.svg" alt="Water Heater Boys" /><p>Good people. Great work.<br />Hot water you can count on.</p><p>© 2026 Water Heater Boys<br /><a href="https://www.waterheaterboys.com/privacy-policy/">Privacy policy</a> · <a href="https://www.waterheaterboys.com/disclaimer/">Website disclaimer</a></p></div></footer>
   <nav class="mobile-bar" aria-label="Contact Water Heater Boys"><a class="button dark" href="tel:+16508442305">Call our team</a><a class="button" href="#quote">Get a quote ↗</a></nav>
   <script is:inline define:vars={{tankSize: page.size}}>
   (() => {
     if (!['waterheaterboys.com', 'www.waterheaterboys.com'].includes(location.hostname)) return;
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
-    const tag = document.createElement('script');
-    tag.async = true;
-    tag.src = 'https://www.googletagmanager.com/gtag/js?id=G-JLE3QE7HQ4';
-    document.head.appendChild(tag);
-    gtag('js', new Date());
-    gtag('config', 'G-JLE3QE7HQ4');
     document.addEventListener('click', (event) => {
       const link = event.target instanceof Element ? event.target.closest('a') : null;
       if (!link) return;
@@ -131,6 +127,7 @@ const lowerPhoto = page.size === '75' ? {
       const placement = link.closest('.mobile-bar') ? 'mobile_bar' : link.closest('header') ? 'header' : link.closest('footer') ? 'footer' : link.closest('#quote') ? 'quote_section' : 'page_content';
       gtag('event', eventName, {send_to: 'G-JLE3QE7HQ4', service: 'gas_tank_replacement', tank_size: `${tankSize}_gallon`, cta_location: placement, transport_type: 'beacon'});
     });
+    window.addEventListener('load', () => {
     const destination = 'AW-17622034413/8vLtCJKLyJodEO3P69JB';
     const anchors = [...document.querySelectorAll('a[href^="tel:"]')].filter((anchor) => ['6508442305', '16508442305'].includes((anchor.getAttribute('href') || '').replace(/\D/g, '')));
     if (!anchors.length) return;
@@ -143,6 +140,7 @@ const lowerPhoto = page.size === '75' ? {
         if (/\d/.test(anchor.textContent || '')) anchor.textContent = (anchor.textContent || '').replace(/(?:\+?1[\s.-]?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}/g, () => formattedNumber);
       }
     }, phone_conversion_options: {timeout: 5000}});
+    }, {once: true});
   })();
   </script>
 </body>

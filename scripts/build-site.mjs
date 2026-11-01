@@ -18,4 +18,6 @@ const result=spawnSync(process.execPath,[astro,'build','--root','site'],{
   },
 });
 
-process.exit(result.status??1);
+if(result.status !== 0) process.exit(result.status??1);
+const verification=spawnSync(process.execPath,['scripts/verify-paid-landings.mjs'],{stdio:'inherit'});
+process.exit(verification.status??1);
