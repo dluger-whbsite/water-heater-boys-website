@@ -83,7 +83,7 @@ const lowerPhoto = page.size === '75' ? {
   <main id="main">
     <section class="hero wrap"><div>
       <p class="winter-label">WINTER OFFER · SAVE {winterDiscount}</p><p class="eyebrow">{page.size}-GALLON GAS WATER HEATER REPLACEMENT</p>
-      {page.offerPrice ? <h1>{page.size}-gallon gas water heater.<br /><em>{winterPrice} installed.</em></h1> : <h1>{page.headline}<br />Hot water.<br /><em>{page.emphasis}</em></h1>}
+      {page.offerPrice ? <h1>{page.size}-gallon gas water heater.<br /><em>{winterPrice} installed.</em></h1> : <h1>{page.size}-gallon gas water heater<br /><em>replacement.</em></h1>}
       {page.offerPrice && <p class="winter-price">Regularly <s>{page.offerPrice}</s></p>}<p class="winter-scope">{page.offerPrice ? "For qualifying standard replacements. Limited-time offer." : "Discount applied to your installation quote. Limited-time offer."}</p><a class="button winter-cta" href="#quote">Get a quote ↗</a><p class="intro">{page.intro}</p>
       <div class="review"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><strong>5.0 on Google</strong><a href="https://share.google/4STw9F4WMRExtb7Gn" target="_blank" rel="noopener">Read our 100+ Google reviews ↗</a></div>
       <img class="hero-photo" src={heroImage} width="853" height="1844" fetchpriority="high" alt={heroAlt} />
