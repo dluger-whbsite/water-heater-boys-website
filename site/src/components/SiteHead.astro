@@ -3,10 +3,11 @@ interface Props {
   title:string;
   description:string;
   pageType?:'website'|'article';
+  cityServiceArea?:{city:string;county:string};
   datePublished?:string;
   dateModified?:string;
 }
-const {title,description,pageType='website',datePublished,dateModified}=Astro.props;
+const {title,description,pageType='website',datePublished,dateModified,cityServiceArea}=Astro.props;
 const siteOrigin='https://www.waterheaterboys.com';
 const fullTitle=title.includes('Water Heater Boys')?title:`${title} | Water Heater Boys`;
 const canonical=new URL(Astro.url.pathname,siteOrigin).toString();
@@ -59,7 +60,27 @@ const articleSchema=pageType==='article'?{
   ...(datePublished?{datePublished}:{}),
   ...(dateModified?{dateModified}:{}),
 }:undefined;
-const schemas=[businessSchema,websiteSchema,breadcrumbSchema,articleSchema].filter(Boolean);
+// City pages describe a local service supplied by the same company, not a new branch.
+const cityServiceSchema=cityServiceArea?{
+  '@context':'https://schema.org',
+  '@type':'Service',
+  '@id':`${canonical}#service`,
+  name:`Water Heater Installation & Plumbing in ${cityServiceArea.city}`,
+  url:canonical,
+  description,
+  serviceType:['Water heater installation','Plumbing services'],
+  provider:{'@id':`${siteOrigin}/#business`},
+  areaServed:{
+    '@type':'City',
+    name:cityServiceArea.city,
+    containedInPlace:{
+      '@type':'AdministrativeArea',
+      name:cityServiceArea.county,
+      containedInPlace:{'@type':'State',name:'California'},
+    },
+  },
+}:undefined;
+const schemas=[businessSchema,websiteSchema,breadcrumbSchema,articleSchema,cityServiceSchema].filter(Boolean);
 ---
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width"/>
