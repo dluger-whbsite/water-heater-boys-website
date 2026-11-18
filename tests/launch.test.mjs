@@ -10,6 +10,10 @@ const env={ASSETS:{fetch:async()=>new Response('<html>ok</html>',{status:200,hea
 test('legacy Wix service URLs permanently redirect to their replacement',async()=>{
   const cases={
     '/service-locations-bayarea':'/service-areas/',
+    '/service-location/danville':'/service-areas/danville/',
+    '/service-location/danville/':'/service-areas/danville/',
+    '/service-location/livermore':'/service-areas/',
+    '/service-location/livermore/':'/service-areas/',
     '/general-plumbing':'/services/plumbing/',
     '/services/gas-tank-water-heater-installation':'/services/gas-tank-water-heaters/',
     '/services/gas-tankless-water-heater-installations':'/services/tankless-water-heaters/',

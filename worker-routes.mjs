@@ -1,6 +1,10 @@
 export const permanentRedirects={
   '/about-us':'/about-us/',
   '/service-locations-bayarea':'/service-areas/',
+  '/service-location/danville':'/service-areas/danville/',
+  '/service-location/danville/':'/service-areas/danville/',
+  '/service-location/livermore':'/service-areas/',
+  '/service-location/livermore/':'/service-areas/',
   '/general-plumbing':'/services/plumbing/',
   '/services':'/#services',
   '/services/gas-tank-water-heater-installation':'/services/gas-tank-water-heaters/',
