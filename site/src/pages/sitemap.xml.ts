@@ -5,6 +5,7 @@ import {getCollection} from 'astro:content';
 const origin='https://www.waterheaterboys.com';
 const lastModified='2026-10-09';
 const articles=await getCollection('blog');
+const articleDates=new Map(articles.filter(article=>article.data.publishedDate).map(article=>[`/post/${article.id}/`,article.data.publishedDate]));
 const routes=[
   '/',
   '/blog/',
@@ -24,6 +25,6 @@ const routes=[
 ];
 
 export const GET:APIRoute=()=>new Response(
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${routes.map((route)=>`  <url><loc>${origin}${route}</loc><lastmod>${lastModified}</lastmod></url>`).join('\n')}\n</urlset>\n`,
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${routes.map((route)=>`  <url><loc>${origin}${route}</loc><lastmod>${articleDates.get(route)??lastModified}</lastmod></url>`).join('\n')}\n</urlset>\n`,
   {headers:{'Content-Type':'application/xml; charset=utf-8'}},
 );

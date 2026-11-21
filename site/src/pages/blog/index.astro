@@ -3,7 +3,7 @@ import {getCollection} from 'astro:content';
 import ServiceLayout from '../../layouts/ServiceLayout.astro';
 import '../../styles/blog.css';
 
-const posts = (await getCollection('blog')).sort((a,b)=>a.data.number-b.data.number);
+const posts = (await getCollection('blog')).sort((a,b)=>(b.data.publishedDate??'').localeCompare(a.data.publishedDate??'')||a.data.number-b.data.number);
 ---
 <ServiceLayout title="Water Heater & Plumbing Advice" description="Water Heater Boys articles on water heater replacement, Bay Area rules, tankless and heat pump systems, and plumbing." workHref="/#work" estimateIntro="Have a question about your water heater or plumbing? Tell us what is happening and we can discuss the next step.">
   <section class="blog-hero"><div class="wrap"><p class="eyebrow">WATER HEATER BOYS JOURNAL</p><h1>Water Heater &amp; Plumbing Advice for Bay Area Homes</h1><p>Water heaters, plumbing, costs, and the rules that may affect your next replacement.</p></div></section>
