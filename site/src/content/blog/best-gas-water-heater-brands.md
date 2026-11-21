@@ -113,7 +113,7 @@ Some higher-tier models also include longer labor warranties.
 
 That's worth recognizing. Rheem offers competitive warranty options, even though it isn't our preferred brand.
 
-**Our verdict:** Rheem makes legitimate water heaters with several product and warranty options. We rank it fourth based on our preference for other professional product lines, not because every Rheem model is poorly made.
+**Our verdict:** Rheem offers a wide range of water heaters and warranty options. Our ranking reflects our installation preferences, distributor relationships, and familiarity with the product lines we supply.
 
 ## Which Gas Water Heater Brand Has the Best Warranty?
 
